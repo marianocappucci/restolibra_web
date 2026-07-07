@@ -72,9 +72,10 @@ img { max-width: 100%; }
 /* ── Hero ──────────────────────────────────────────────────── */
 .hero {
   background:
-    radial-gradient(ellipse at 20% 20%, rgba(234,88,12,.35) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 75%, rgba(194,65,12,.30) 0%, transparent 55%),
-    linear-gradient(160deg, #1c1410 0%, #2a1c12 55%, #1c1410 100%);
+    radial-gradient(ellipse at 20% 20%, rgba(234,88,12,.30) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(194,65,12,.25) 0%, transparent 55%),
+    linear-gradient(160deg, rgba(28,20,16,.88) 0%, rgba(28,20,16,.80) 55%, rgba(28,20,16,.92) 100%),
+    url('/img/hero.jpg') center 35% / cover no-repeat;
   color: white;
   padding: 6rem 2rem 5rem;
   text-align: center;
