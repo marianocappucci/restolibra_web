@@ -1,0 +1,15 @@
+services:
+  restolibra-web:
+    build: .
+    image: restolibra-web:latest
+    container_name: restolibra-web
+    restart: unless-stopped
+    ports:
+      - "8079:80"
+    networks:
+      - stack-net
+
+networks:
+  stack-net:
+    external: true
+    name: stack_stack-net
