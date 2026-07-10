@@ -227,7 +227,7 @@ footer {
   width: 260px; flex-shrink: 0;
   background: var(--bg);
   border-right: 1px solid var(--border);
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 4rem;
   position: sticky; top: 64px;
   height: calc(100vh - 64px);
   overflow-y: auto;
