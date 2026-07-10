@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta Corriente — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html" class="active">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Cuenta Corriente</h1>
+    <p class="docs-lead">Llevá el saldo de cada cliente que consume a crédito — muy usado con empresas que piden viandas o catering habitual. El sistema acumula automáticamente la deuda generada por ventas y facturas en cuenta corriente, y registra los pagos que la van cancelando.</p>
+
+    <h2>Para qué sirve</h2>
+    <p>La cuenta corriente te permite:</p>
+    <ul>
+      <li>Ver en tiempo real cuánto debe cada cliente</li>
+      <li>Consultar el historial completo de cargos y pagos de cada cuenta</li>
+      <li>Registrar cobros parciales o totales de la deuda</li>
+      <li>Integrar los cobros con la caja del sistema</li>
+    </ul>
+    <p>No necesitás cargar nada manualmente: el sistema genera los cargos automáticamente cada vez que se cobra un pedido o factura con medio de pago "Cuenta Corriente".</p>
+
+    <h2>Cómo se genera la deuda</h2>
+    <p>El saldo deudor de un cliente se incrementa automáticamente en dos situaciones:</p>
+    <ul>
+      <li><strong>Pedidos/ventas en cuenta corriente:</strong> cuando cobrás un pedido de salón o canal, o registrás una venta, y seleccionás <em>Cuenta Corriente</em> como medio de pago.</li>
+      <li><strong>Facturas electrónicas en cuenta corriente:</strong> cuando emitís una factura con medio de cobro <em>Cuenta Corriente</em>.</li>
+    </ul>
+
+    <div class="callout success">
+      <p><strong>Automático:</strong> no tenés que hacer ninguna carga adicional. Al confirmar el cobro o la factura, el sistema ya impacta el cargo en la cuenta corriente del cliente.</p>
+    </div>
+
+    <h2>Ver la lista de cuentas corrientes</h2>
+    <p>Andá a <strong>Comercial → Cta. Corriente</strong>. El listado muestra todos los clientes que tienen movimientos en cuenta corriente, con su saldo actual:</p>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Badge</th><th>Significado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Amarillo</td><td>El cliente tiene saldo deudor (debe dinero)</td></tr>
+        <tr><td>Verde</td><td>Hay crédito a favor del cliente</td></tr>
+        <tr><td>Gris</td><td>Saldo cero, la cuenta está saldada</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Historial de movimientos</h2>
+    <p>Hacé clic en cualquier cliente del listado para ver el detalle de su cuenta corriente. El historial muestra todos los movimientos en orden cronológico:</p>
+    <ul>
+      <li><strong>Cargos</strong> (ventas y facturas en CC) — se muestran en rojo</li>
+      <li><strong>Abonos</strong> (pagos registrados) — se muestran en verde</li>
+    </ul>
+    <p>Al pie de la tabla se muestra el <strong>saldo acumulado</strong> resultante de todos los movimientos.</p>
+
+    <h2>Registrar un pago</h2>
+    <p>Desde el detalle de la cuenta de un cliente, hacé clic en <strong>Registrar pago</strong> y completá los campos:</p>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Campo</th><th>Descripción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Monto</strong></td><td>Importe del pago a acreditar</td></tr>
+        <tr><td><strong>Fecha</strong></td><td>Fecha en que se recibió el pago</td></tr>
+        <tr><td><strong>Concepto</strong></td><td>Descripción breve del pago (ej: "Pago parcial factura 0005-00000012")</td></tr>
+        <tr><td><strong>Medio de pago</strong></td><td>Efectivo, transferencia bancaria, etc.</td></tr>
+        <tr><td><strong>Referencia</strong></td><td>Número de transferencia, cheque u otro comprobante (opcional)</td></tr>
+        <tr><td><strong>Registrar en caja</strong></td><td>Si lo activás, el sistema genera automáticamente un movimiento de ingreso en la caja seleccionada</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p><strong>Integración con caja:</strong> si activás la opción de registrar el pago en caja, el ingreso aparece en el movimiento de la caja del día igual que cualquier otro cobro. No tenés que cargarlo dos veces.</p>
+    </div>
+
+    <h2>Saldo positivo y negativo</h2>
+    <p>El saldo se interpreta de la siguiente manera:</p>
+    <ul>
+      <li><strong>Saldo positivo:</strong> el cliente debe dinero. Es la situación habitual cuando hay consumos sin cancelar.</li>
+      <li><strong>Saldo negativo:</strong> hay un crédito a favor del cliente, por ejemplo si realizó un pago en exceso o se le hizo un ajuste.</li>
+    </ul>
+
+    <h2>Eliminar un pago</h2>
+    <p>Cada pago manual registrado en la cuenta corriente tiene un ícono de papelera en su fila del historial. Hacé clic en él para eliminar ese pago. Solo los pagos registrados manualmente pueden eliminarse; los cargos generados por ventas o facturas se eliminan cancelando el comprobante original.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/clientes.html">← Clientes</a>
+      <a href="/docs/caja-turnos.html">Caja y Turnos →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios y permisos — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html" class="active">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Usuarios y permisos</h1>
+    <p class="docs-lead">Administrá quiénes pueden acceder al sistema y qué pueden hacer. Restolibra tiene tres roles: administrador, operador y mozo.</p>
+
+    <h2>Roles del sistema</h2>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Rol</th><th>Qué puede hacer</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Administrador</strong></td>
+          <td>Acceso total: configuración, usuarios, módulos, reportes, backup y restore, logs del sistema.</td>
+        </tr>
+        <tr>
+          <td><strong>Operador</strong></td>
+          <td>Acceso operativo: ventas, caja, productos, clientes, salón. No puede modificar configuración ni ver logs.</td>
+        </tr>
+        <tr>
+          <td><strong>Mozo</strong></td>
+          <td>Acceso acotado únicamente al salón: mapa de mesas y pedidos de barra/takeaway/delivery. No ve el dashboard, la caja ni ningún otro módulo administrativo — ni siquiera escribiendo la URL directamente.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p><strong>Recomendación:</strong> Usá el rol <em>Mozo</em> para el personal de salón que solo necesita tomar comandas desde el celular. Usá <em>Operador</em> para quien también maneja caja y facturación. Reservá <em>Administrador</em> para el dueño o encargado general.</p>
+    </div>
+
+    <h2>El rol Mozo, pensado para el celular</h2>
+    <p>Un usuario con rol Mozo, al iniciar sesión, cae directo en el mapa de mesas — nunca ve el dashboard. Desde el sidebar solo tiene disponibles <strong>Mesas</strong> y <strong>Pedidos</strong>; el resto de las secciones (Dashboard, Caja, Facturación, Reportes, Configuración, KDS, etc.) están ocultas, y si de todas formas intenta entrar por URL directa a cualquiera de ellas, el sistema lo redirige de vuelta al salón.</p>
+    <p>Además, el flujo de salón se puede <strong>instalar como una app</strong> desde el navegador del celular ("Agregar a pantalla de inicio"), para que el mozo lo abra como cualquier otra aplicación. Ver el detalle en <a href="/docs/salon.html">Salón y Mesas</a>.</p>
+
+    <h2>Crear un usuario nuevo</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Administración → Usuarios</strong> en el menú lateral.</li>
+      <li>Hacé clic en <strong>Nuevo usuario</strong>.</li>
+      <li>Completá el nombre, nombre de usuario (login), contraseña y rol.</li>
+      <li>Guardá. El usuario ya puede ingresar con esas credenciales.</li>
+    </ol>
+
+    <h2>Cambiar contraseña</h2>
+    <p>Un administrador puede cambiar la contraseña de cualquier usuario desde <strong>Administración → Usuarios</strong>.</p>
+
+    <h2>Desactivar un usuario</h2>
+    <p>Para que un usuario ya no pueda ingresar, podés desactivarlo en lugar de eliminarlo. Así se conserva el historial de sus operaciones (pedidos tomados, cierres de caja, etc.).</p>
+    <ol class="step-list">
+      <li>Andá a <strong>Administración → Usuarios</strong>.</li>
+      <li>Buscá el usuario y hacé clic en <strong>Editar</strong>.</li>
+      <li>Desmarcá <strong>Activo</strong> y guardá.</li>
+    </ol>
+
+    <div class="callout warn">
+      <p><strong>Atención:</strong> No elimines usuarios que tienen ventas o movimientos de caja registrados, ya que se perdería la trazabilidad de esas operaciones.</p>
+    </div>
+
+    <h2>Auditoría y logs</h2>
+    <p>El sistema registra las acciones importantes de cada usuario (login, ventas, cambios de configuración). Los administradores pueden revisar estos logs en <strong>Administración → Logs</strong>.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/empresa.html">← Datos del negocio</a>
+      <a href="/docs/configuracion.html">Configuración general →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

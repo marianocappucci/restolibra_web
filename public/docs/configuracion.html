@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración general — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html" class="active">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Configuración general</h1>
+    <p class="docs-lead">Ajustes del sistema: integraciones, servicio, impresora de tickets/comandas, módulos habilitados y backup de datos.</p>
+
+    <h2>Pestañas de configuración</h2>
+    <p>La sección de Configuración está organizada en pestañas. El menú de pestañas queda fijo en la parte superior para que siempre esté visible mientras scrolleás.</p>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Pestaña</th><th>Contenido</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Empresa</strong></td><td>Razón social, CUIT, dirección, logo</td></tr>
+        <tr><td><strong>Integraciones → MercadoPago</strong></td><td>Access Token, User ID, POS ID, Webhook Secret</td></tr>
+        <tr><td><strong>Integraciones → ARCA / AFIP</strong></td><td>Certificado digital y clave privada para facturación electrónica</td></tr>
+        <tr><td><strong>Integraciones → Email / SMTP</strong></td><td>Servidor de correo para envío de comprobantes</td></tr>
+        <tr><td><strong>Servicio</strong></td><td>Estado del servicio (activo / pausado / suspendido)</td></tr>
+        <tr><td><strong>Ticket / Impresora</strong></td><td>Configuración de ticketera térmica para ventas y comandas</td></tr>
+        <tr><td><strong>Datos / Backup</strong></td><td>Backup y restauración de la base de datos</td></tr>
+        <tr><td><strong>Módulos</strong></td><td>Activar o desactivar módulos según el plan</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p><strong>Cubierto y panera:</strong> los cargos automáticos por mesa (cubierto por comensal, panera por mesa) no se configuran acá — viven en <a href="/docs/salon.html">Salón → Config. salón</a>, junto con los salones y mesas.</p>
+    </div>
+
+    <h2>Integraciones</h2>
+    <p>La pestaña <strong>Integraciones</strong> tiene tres subsecciones accesibles desde el menú lateral: MercadoPago, ARCA y Email. Cada una tiene un botón <strong>Probar conexión</strong> que verifica que los datos sean correctos antes de usar la integración.</p>
+
+    <h3>MercadoPago</h3>
+    <p>Permite cobrar con QR dinámico en ventas presenciales. Los campos requeridos son:</p>
+    <table class="docs-table">
+      <thead><tr><th>Campo</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Access Token</strong></td><td>Token de producción de tu app en MP (empieza con <code>APP_USR-</code>)</td></tr>
+        <tr><td><strong>User ID</strong></td><td>ID numérico de tu cuenta MercadoPago</td></tr>
+        <tr><td><strong>POS ID (External ID)</strong></td><td>Identificador del punto de venta creado en Tu negocio → Puntos de venta</td></tr>
+        <tr><td><strong>Webhook Secret</strong></td><td>Firma secreta del webhook para validar notificaciones de pago</td></tr>
+      </tbody>
+    </table>
+    <p>Para obtener cada credencial, consultá la guía en <a href="/docs/integraciones.html">Integraciones</a>.</p>
+
+    <h3>ARCA / Facturación electrónica</h3>
+    <p>Configuración del certificado digital para emitir facturas ante AFIP. Requiere:</p>
+    <ul>
+      <li>Clave privada (<kbd>.key</kbd>) generada con OpenSSL</li>
+      <li>Certificado digital (<kbd>.crt</kbd>) obtenido desde el portal ARCA/AFIP</li>
+      <li>CUIT, punto de venta y ambiente (homologación o producción)</li>
+    </ul>
+    <p>Podés verificar la conexión con el botón <strong>Probar conexión</strong>, que autentica contra el servicio WSAA de AFIP y muestra la vigencia del certificado.</p>
+    <p>Guía paso a paso completa en <a href="/docs/facturacion.html">Facturación electrónica</a>.</p>
+
+    <h3>Email / SMTP</h3>
+    <p>Configurá el servidor de correo para enviar facturas y presupuestos por email. Para Gmail necesitás una <strong>contraseña de aplicación</strong> (no tu contraseña normal):</p>
+    <ol class="step-list">
+      <li>Activá la verificación en dos pasos en tu cuenta de Google.</li>
+      <li>Ingresá a <strong>myaccount.google.com/apppasswords</strong> y creá una contraseña para "Restolibra".</li>
+      <li>Usá esa contraseña de 16 caracteres en el campo Contraseña del formulario.</li>
+      <li>Servidor: <code>smtp.gmail.com</code> · Puerto: <code>587</code> · Usuario: tu email completo.</li>
+    </ol>
+    <p>Una vez configurado, usá el botón <strong>Probar conexión</strong> para confirmar que el servidor acepta tus credenciales.</p>
+
+    <h2>Configuración de servicio</h2>
+    <p>En la pestaña <strong>Servicio</strong> podés personalizar cómo se comporta el sistema:</p>
+    <ul>
+      <li><strong>Nombre del sistema:</strong> aparece en la barra lateral y en documentos</li>
+      <li><strong>Moneda:</strong> signo monetario usado en precios y totales ($, USD, etc.)</li>
+      <li><strong>IVA incluido en precios:</strong> si los precios de los productos ya incluyen IVA</li>
+    </ul>
+
+    <h2>Impresora de tickets y comandas</h2>
+    <p>Restolibra soporta impresoras térmicas de 58mm y 80mm (Epson TM, Star, Bixolon y compatibles), tanto para tickets de venta como para comandas de cocina/barra. Se generan como PDF que podés imprimir directamente desde el navegador.</p>
+
+    <h3>Configurar la impresora</h3>
+    <ol class="step-list">
+      <li>Andá a <strong>Configuración → Ticket / Impresora</strong>.</li>
+      <li>Seleccioná el ancho de papel: <strong>58mm</strong> o <strong>80mm</strong>.</li>
+      <li>Ajustá el tamaño de fuente (recomendado: 9pt para 80mm, 8pt para 58mm).</li>
+      <li>Activá o desactivá el logo en el ticket y la línea de corte.</li>
+      <li>Escribí un texto de pie de página (ej: "¡Gracias por su visita!").</li>
+      <li>Guardá la configuración.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Comandas sin precios:</strong> las comandas de cocina/barra se imprimen sin precios — solo cantidad, producto y notas — para que cocina/barra vea únicamente lo que tiene que preparar.</p>
+    </div>
+
+    <h2>Backup y restauración</h2>
+    <p>Restolibra genera backups automáticos de la base de datos en momentos clave (antes de restaurar, al cerrar un turno, etc.). También podés generar y descargar un backup manualmente.</p>
+
+    <h3>Descargar backup manual</h3>
+    <ol class="step-list">
+      <li>Andá a <strong>Configuración → Datos / Backup</strong>.</li>
+      <li>Hacé clic en <strong>Descargar backup</strong>.</li>
+      <li>Se descarga un archivo <kbd>.db</kbd> que es tu base de datos completa.</li>
+      <li>Guardalo en un lugar seguro (nube, pendrive, etc.).</li>
+    </ol>
+
+    <h3>Restaurar un backup</h3>
+    <div class="callout warn">
+      <p><strong>Atención:</strong> Restaurar un backup reemplaza toda la base de datos actual. Esta acción no se puede deshacer. El sistema hace un backup automático justo antes de restaurar.</p>
+    </div>
+    <ol class="step-list">
+      <li>En la pestaña <strong>Datos / Backup</strong>, buscá la sección "Restaurar base de datos".</li>
+      <li>Seleccioná el archivo <kbd>.db</kbd> que querés restaurar.</li>
+      <li>Hacé clic en <strong>Restaurar</strong>.</li>
+      <li>El sistema valida la integridad del archivo antes de aplicarlo.</li>
+      <li>Una vez restaurado, el sistema reinicia la sesión.</li>
+    </ol>
+
+    <h2>Módulos habilitados</h2>
+    <p>Los módulos que tenés disponibles dependen de tu plan. Un administrador puede ver y gestionar los módulos activos desde <strong>Administración → Módulos</strong>. Activar o desactivar un módulo no elimina los datos — solo muestra u oculta la sección en el menú.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/usuarios.html">← Usuarios y permisos</a>
+      <a href="/docs/salon.html">Salón y Mesas →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

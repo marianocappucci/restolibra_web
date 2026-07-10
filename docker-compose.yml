@@ -8,6 +8,20 @@ services:
       - "8079:80"
     networks:
       - stack-net
+    depends_on:
+      - auth
+
+  auth:
+    build: ./auth
+    image: restolibra-web-auth:latest
+    container_name: restolibra-web-auth
+    restart: unless-stopped
+    environment:
+      - DOCS_AUTH_SECRET=${DOCS_AUTH_SECRET:-}
+      - SECRET_KEY=${DOCS_SESSION_SECRET:-restolibra-docs-secret-change-me}
+      - ADMIN_API_URL=${ADMIN_API_URL:-https://admin.restolibra.com.ar}
+    networks:
+      - stack-net
 
 networks:
   stack-net:

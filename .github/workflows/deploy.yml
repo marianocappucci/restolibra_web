@@ -16,7 +16,7 @@ jobs:
       - name: Sync archivos al VPS
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avz --delete --exclude='.git' --exclude='.github' --exclude='*.md' --exclude='.claude'
+          switches: -avz --delete --exclude='.git' --exclude='.github' --exclude='*.md' --exclude='.claude' --exclude='.env'
           path: ./
           remote_path: /root/restolibra_web/
           remote_host: 149.50.136.218

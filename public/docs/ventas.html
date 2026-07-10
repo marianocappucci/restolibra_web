@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html" class="active">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Ventas</h1>
+    <p class="docs-lead">Toda venta cobrada desde una mesa, barra, takeaway o delivery queda registrada acá con el mismo detalle que una venta de mostrador. También podés cargar una venta suelta sin pasar por el salón.</p>
+
+    <h2>Cómo se generan las ventas</h2>
+    <p>La mayoría de las ventas en Restolibra nacen de <strong>cobrar un pedido</strong> desde el salón o los canales sin mesa (ver <a href="/docs/salon.html">Salón y Mesas</a> y <a href="/docs/canales.html">Canales sin mesa</a>) — al cobrar, el sistema genera la venta automáticamente con todos los ítems del pedido. También podés registrar una venta directa desde <strong>Ventas → Nueva venta</strong> para mostrador rápido sin abrir mesa.</p>
+
+    <h2>Registrar una venta directa</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Ventas → Nueva venta</strong>.</li>
+      <li>Buscá productos escribiendo el nombre o código en el campo de búsqueda.</li>
+      <li>Hacé clic en un producto para agregarlo al detalle.</li>
+      <li>Ajustá la cantidad con los botones + / − o escribiendo directamente.</li>
+      <li>Seleccioná el medio de pago: efectivo, tarjeta de crédito, tarjeta de débito, transferencia, QR u otro.</li>
+      <li>Opcionalmente asociá la venta a un cliente registrado.</li>
+      <li>Hacé clic en <strong>Confirmar venta</strong>.</li>
+    </ol>
+
+    <div class="callout success">
+      <p><strong>Stock automático:</strong> cada venta confirmada descuenta automáticamente el stock (o los insumos de receta) de los productos vendidos.</p>
+    </div>
+
+    <h2>Medios de pago</h2>
+    <p>Podés registrar ventas con múltiples medios de pago en una misma transacción. Por ejemplo: parte en efectivo y parte con tarjeta — muy común al dividir la cuenta de una mesa.</p>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Medio de pago</th><th>Se registra en caja</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Efectivo</td><td>Sí</td></tr>
+        <tr><td>Tarjeta de crédito</td><td>No (se registra como no efectivo)</td></tr>
+        <tr><td>Tarjeta de débito</td><td>No</td></tr>
+        <tr><td>Transferencia bancaria</td><td>No</td></tr>
+        <tr><td>QR / billetera virtual</td><td>No</td></tr>
+        <tr><td>Otro</td><td>No</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Cobro con QR de MercadoPago</h2>
+    <p>Si tenés configurada la integración con MercadoPago, podés generar un QR dinámico para cobrar una venta o un pedido directamente desde el sistema:</p>
+    <ol class="step-list">
+      <li>Al cobrar, seleccioná <strong>QR / billetera virtual</strong> como medio de pago.</li>
+      <li>Hacé clic en <strong>Cobrar con QR</strong>.</li>
+      <li>El sistema genera un QR dinámico vinculado al monto exacto.</li>
+      <li>El cliente escanea el QR con MercadoPago, Cuenta DNI u otra billetera compatible.</li>
+      <li>El sistema verifica el pago automáticamente y marca la venta como cobrada.</li>
+    </ol>
+    <div class="callout">
+      <p><strong>Requisito:</strong> la integración con MercadoPago debe estar configurada en <a href="/docs/integraciones.html">Integraciones</a> antes de usar esta función.</p>
+    </div>
+
+    <h2>Ticket de venta</h2>
+    <p>Desde el detalle de una venta podés imprimir un ticket térmico. Hacé clic en el botón <strong>Ticket</strong> para abrir el PDF optimizado para tu impresora. Asegurate de haber configurado la impresora primero en <a href="/docs/configuracion.html">Configuración → Ticket</a>.</p>
+
+    <h2>Notas de crédito y débito</h2>
+    <p>Las notas de crédito (NC) se usan para anular o ajustar una venta ya cobrada. Las notas de débito (ND) son para ajustar cargos adicionales.</p>
+
+    <h3>Emitir una nota de crédito</h3>
+    <ol class="step-list">
+      <li>Andá al detalle de la venta que querés anular o ajustar.</li>
+      <li>Hacé clic en <strong>Nota de crédito</strong>.</li>
+      <li>Seleccioná los ítems a devolver y las cantidades.</li>
+      <li>Confirmá. El stock (o los insumos) de los ítems devueltos se repone automáticamente.</li>
+    </ol>
+
+    <div class="callout warn">
+      <p><strong>Notas de crédito electrónicas:</strong> si la venta original fue facturada electrónicamente ante ARCA, la nota de crédito también se emite como comprobante electrónico. Ver <a href="/docs/facturacion.html">Facturación electrónica</a>.</p>
+    </div>
+
+    <h2>Historial de ventas</h2>
+    <p>En <strong>Ventas</strong> (listado principal) podés filtrar por fecha, cliente, canal o medio de pago. Hacé clic en cualquier venta para ver su detalle completo, incluida la mesa o canal de origen si vino del salón.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/recetas.html">← Recetas y Food Cost</a>
+      <a href="/docs/presupuestos.html">Presupuestos →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

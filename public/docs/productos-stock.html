@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos y Stock — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html" class="active">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Productos y Stock</h1>
+    <p class="docs-lead">Administrá tu menú y tus insumos, y llevá el control de inventario con alertas de stock bajo.</p>
+
+    <h2>Crear un producto</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Productos → Nuevo producto</strong>.</li>
+      <li>Completá el nombre del producto (obligatorio).</li>
+      <li>Ingresá el precio de venta.</li>
+      <li>Marcá si es <strong>Vendible</strong> (aparece en el menú del mozo) o un insumo interno (ver <a href="/docs/recetas.html">Recetas y Food Cost</a>).</li>
+      <li>Si es vendible y genera comanda, asigná su <strong>estación</strong>: cocina, barra o ninguna.</li>
+      <li>Completá la descripción, categoría y código interno (opcionales).</li>
+      <li>Si controlás stock, ingresá la cantidad inicial y el stock mínimo.</li>
+      <li>Guardá.</li>
+    </ol>
+
+    <h2>Campos del producto</h2>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Campo</th><th>Descripción</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nombre</strong></td>
+          <td>Nombre del producto tal como aparece en el menú, comandas y facturas</td>
+        </tr>
+        <tr>
+          <td><strong>Descripción</strong></td>
+          <td>Detalle adicional, aparece en presupuestos y facturas</td>
+        </tr>
+        <tr>
+          <td><strong>Precio de venta</strong></td>
+          <td>Precio que se carga automáticamente al vender</td>
+        </tr>
+        <tr>
+          <td><strong>Precio de costo</strong></td>
+          <td>Para calcular margen en reportes (no se muestra al cliente); si el producto tiene receta, se sincroniza con el costo calculado</td>
+        </tr>
+        <tr>
+          <td><strong>Vendible</strong></td>
+          <td>Si está desmarcado, es un insumo — no aparece en el menú ni en ventas, solo en stock y recetas</td>
+        </tr>
+        <tr>
+          <td><strong>Estación</strong></td>
+          <td>Cocina, barra o ninguna — determina a qué pantalla KDS se envía la comanda</td>
+        </tr>
+        <tr>
+          <td><strong>Categoría</strong></td>
+          <td>Para organizar y filtrar productos</td>
+        </tr>
+        <tr>
+          <td><strong>Código interno</strong></td>
+          <td>Código de barra o referencia interna, se puede usar para búsqueda rápida</td>
+        </tr>
+        <tr>
+          <td><strong>Alícuota IVA</strong></td>
+          <td>Alícuota aplicable (21%, 10.5%, exento) para facturación electrónica</td>
+        </tr>
+        <tr>
+          <td><strong>Stock actual</strong></td>
+          <td>Cantidad disponible en inventario</td>
+        </tr>
+        <tr>
+          <td><strong>Stock mínimo</strong></td>
+          <td>Umbral de alerta: cuando el stock baja de este valor, aparece en el reporte de stock bajo</td>
+        </tr>
+        <tr>
+          <td><strong>Activo</strong></td>
+          <td>Si está desactivado, no aparece al buscar en ventas ni en el menú del mozo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Control de stock</h2>
+    <p>El stock se gestiona automáticamente:</p>
+    <ul>
+      <li><strong>Venta o pedido cobrado:</strong> resta la cantidad vendida — o los insumos de la receta, si el producto tiene una configurada</li>
+      <li><strong>Nota de crédito / devolución:</strong> repone el stock</li>
+      <li><strong>Remito:</strong> resta el stock al confirmar</li>
+      <li><strong>Ajuste manual:</strong> permite corregir el stock por inventario físico o registrar mermas</li>
+    </ul>
+
+    <h3>Ajuste manual de stock</h3>
+    <p>Para corregir diferencias entre el sistema y el inventario físico:</p>
+    <ol class="step-list">
+      <li>Andá a <strong>Stock</strong> en el menú lateral.</li>
+      <li>Buscá el producto o insumo que querés ajustar.</li>
+      <li>Hacé clic en <strong>Ajustar stock</strong>.</li>
+      <li>Ingresá el nuevo valor real (no la diferencia, sino la cantidad final) y el motivo del ajuste.</li>
+      <li>Guardá. El movimiento queda registrado en el historial de stock.</li>
+    </ol>
+
+    <h2>Alertas de stock bajo</h2>
+    <p>En el dashboard del sistema verás un indicador cuando algún producto o insumo tenga stock por debajo del mínimo configurado. También podés revisar la lista completa en <strong>Reportes → Stock bajo mínimo</strong>.</p>
+
+    <div class="callout">
+      <p><strong>Tip:</strong> configurá el stock mínimo de tus insumos clave según tu tiempo de reposición habitual, para no quedarte sin ingredientes en medio de un servicio.</p>
+    </div>
+
+    <h2>Categorías de productos</h2>
+    <p>Las categorías te ayudan a organizar tu menú. Podés filtrar por categoría en la lista de productos y en reportes. Para gestionar las categorías andá a <strong>Productos → Categorías</strong>.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/facturacion.html">← Facturación electrónica</a>
+      <a href="/docs/listas-precio.html">Listas de Precios →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

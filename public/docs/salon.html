@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salón y Mesas — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html" class="active">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Salón y Mesas</h1>
+    <p class="docs-lead">Organizá tu salón en ambientes y mesas, abrí pedidos, cobrá desde la mesa, y usá el modo mozo desde el celular con el mapa de mesas instalado como una app.</p>
+
+    <h2>Configurar salones y mesas</h2>
+    <p>Antes de operar necesitás crear al menos un salón y sus mesas. Solo los roles Administrador y Operador pueden acceder a esta configuración (el rol Mozo no la ve).</p>
+    <ol class="step-list">
+      <li>Andá a <strong>Salón → Config. salón</strong>.</li>
+      <li>Hacé clic en <strong>Nuevo salón</strong> e ingresá un nombre (por ejemplo "Planta baja", "Terraza", "Salón privado") y un orden de visualización.</li>
+      <li>Dentro del salón, agregá las <strong>mesas</strong> con su nombre y capacidad (número de comensales habituales).</li>
+      <li>Podés editar o desactivar salones y mesas en cualquier momento. Un salón o mesa con un pedido abierto no se puede eliminar hasta cerrarlo.</li>
+    </ol>
+
+    <h2>Cubierto y panera</h2>
+    <p>Desde <strong>Salón → Config. salón</strong> también podés activar cargos automáticos que se agregan al abrir una mesa:</p>
+    <table class="docs-table">
+      <thead><tr><th>Cargo</th><th>Cómo se cobra</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cubierto</strong></td><td>Por comensal — se multiplica automáticamente por la cantidad de personas indicada al abrir la mesa</td></tr>
+        <tr><td><strong>Panera</strong></td><td>Por mesa — se cobra una sola vez, sin importar la cantidad de comensales</td></tr>
+      </tbody>
+    </table>
+    <p>Ambos cargos son opcionales e independientes: activá el que uses en tu local y configurá su precio. Se agregan al pedido sin necesidad de que el mozo los cargue manualmente, y se pueden quitar del pedido si el cliente no los consume.</p>
+
+    <h2>Mapa de mesas</h2>
+    <p>Andá a <strong>Salón</strong> para ver el mapa de mesas del salón seleccionado. Cada mesa se muestra con un color según su estado:</p>
+    <ul>
+      <li><i class="bi bi-circle-fill text-success"></i> <strong>Libre</strong> — sin pedido abierto</li>
+      <li><i class="bi bi-circle-fill text-danger"></i> <strong>Ocupada</strong> — tiene un pedido abierto</li>
+      <li><i class="bi bi-circle-fill text-warning"></i> <strong>Cuenta pedida</strong> — el cliente pidió la cuenta, está por cobrarse</li>
+    </ul>
+    <p>Si tenés más de un salón, un selector de pestañas arriba del mapa te permite cambiar entre ellos.</p>
+
+    <h2>Abrir una mesa y tomar el pedido</h2>
+    <ol class="step-list">
+      <li>Hacé clic en una mesa libre.</li>
+      <li>Ingresá la cantidad de <strong>comensales</strong> y confirmá — esto abre el pedido y aplica el cubierto/panera si están activos.</li>
+      <li>Buscá productos del menú con el buscador (tappable, pensado para celular) y agregalos al pedido.</li>
+      <li>Ajustá cantidades, agregá una nota por ítem (ej: "sin sal") o personalizá modificadores si el producto tiene receta configurada (ver <a href="/docs/recetas.html">Recetas y Food Cost</a>).</li>
+      <li>Hacé clic en <strong>Enviar</strong> para mandar los ítems nuevos a la(s) pantalla(s) de cocina/barra según su estación. Podés seguir agregando ítems y enviarlos en rondas sucesivas.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Reimprimir comanda:</strong> desde el pedido podés reimprimir el ticket de cualquier ronda ya enviada con el botón de impresora, útil si se perdió el papel en cocina.</p>
+    </div>
+
+    <h2>Cobrar una mesa</h2>
+    <ol class="step-list">
+      <li>Desde el pedido abierto, hacé clic en <strong>Cobrar</strong>.</li>
+      <li>Registrá uno o más medios de pago (podés dividir el pago entre efectivo y tarjeta, por ejemplo).</li>
+      <li>Aplicá un descuento si corresponde, con el botón "Exacto" o un porcentaje.</li>
+      <li>Confirmá. El pedido queda cobrado, se genera la venta, se descuenta el stock (o los insumos de la receta) y la mesa vuelve a <strong>libre</strong>.</li>
+    </ol>
+    <p>La venta generada puede facturarse por ARCA con el flujo normal — ver <a href="/docs/facturacion.html">Facturación electrónica</a>.</p>
+
+    <h2>Anular un pedido</h2>
+    <p>Si un pedido se abrió por error o el cliente se retira sin consumir, podés anularlo desde el detalle del pedido con el botón <strong>Anular</strong>. La mesa vuelve a quedar libre y el pedido no genera venta.</p>
+
+    <h2>Modo mozo: instalar el salón como app en el celular</h2>
+    <p>El flujo de salón (mapa de mesas → abrir mesa → pedido → cobro) está pensado para operarse desde el celular del mozo, y se puede <strong>instalar como una app</strong> sin pasar por ninguna tienda de aplicaciones:</p>
+    <ol class="step-list">
+      <li>Desde el celular, ingresá a tu sistema y entrá a <strong>Salón</strong>.</li>
+      <li>En Chrome/Safari, abrí el menú del navegador y elegí <strong>"Agregar a pantalla de inicio"</strong> (o "Instalar app", según el navegador).</li>
+      <li>Se crea un ícono en el celular que abre directamente el mapa de mesas, sin la barra de direcciones del navegador — como cualquier otra app.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Rol Mozo:</strong> un usuario con rol <em>Mozo</em> (ver <a href="/docs/usuarios.html">Usuarios y permisos</a>) que inicia sesión cae directo en el mapa de mesas, con el sidebar reducido a Mesas y Pedidos únicamente — sin dashboard, caja ni el resto del sistema. Es la combinación recomendada para el personal de salón: rol Mozo + app instalada en su celular.</p>
+    </div>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/configuracion.html">← Configuración general</a>
+      <a href="/docs/comandas-kds.html">Comandas y KDS →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

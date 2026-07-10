@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html" class="active">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Clientes</h1>
+    <p class="docs-lead">Administrá la cartera de clientes de tu negocio: datos de contacto, CUIT/DNI, historial de compras, facturas y presupuestos. Útil sobre todo para clientes frecuentes, cuenta corriente y eventos.</p>
+
+    <h2>Para qué sirve el módulo de Clientes</h2>
+    <p>El módulo de Clientes te permite:</p>
+    <ul>
+      <li>Guardar los datos de cada cliente (nombre, CUIT/DNI, dirección, email, teléfono)</li>
+      <li>Buscar un cliente rápidamente desde ventas, facturación o presupuestos</li>
+      <li>Ver el historial completo de compras, facturas y presupuestos de cada cliente</li>
+      <li>Consultar la razón social de un CUIT automáticamente vía AFIP</li>
+    </ul>
+
+    <h2>Crear un cliente</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Clientes → Nuevo cliente</strong>.</li>
+      <li>Completá el nombre o razón social.</li>
+      <li>Ingresá el <strong>CUIT o DNI</strong>. Si ingresás un CUIT válido, el sistema consulta automáticamente la razón social registrada en AFIP.</li>
+      <li>Completá los datos opcionales: dirección, localidad, provincia, teléfono, email.</li>
+      <li>Seleccioná la <strong>condición ante IVA</strong> (Consumidor Final, Responsable Inscripto, Monotributista, Exento). Esto determina el tipo de factura que corresponde emitirle.</li>
+      <li>Guardá el cliente.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Tip:</strong> el email del cliente es el que se usa cuando enviás facturas o presupuestos por email desde el sistema.</p>
+    </div>
+
+    <h2>Campos del cliente</h2>
+    <table class="docs-table">
+      <thead>
+        <tr><th>Campo</th><th>Descripción</th><th>Requerido</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Nombre / Razón social</strong></td><td>Nombre comercial o razón social legal</td><td>Sí</td></tr>
+        <tr><td><strong>CUIT / DNI</strong></td><td>Número de identificación tributaria o personal</td><td>No</td></tr>
+        <tr><td><strong>Condición IVA</strong></td><td>Determina el tipo de factura a emitir</td><td>No</td></tr>
+        <tr><td><strong>Email</strong></td><td>Para envío de comprobantes por email</td><td>No</td></tr>
+        <tr><td><strong>Teléfono</strong></td><td>Datos de contacto</td><td>No</td></tr>
+        <tr><td><strong>Dirección</strong></td><td>Domicilio fiscal o de entrega</td><td>No</td></tr>
+        <tr><td><strong>Localidad / Provincia</strong></td><td>Aparece en facturas y remitos</td><td>No</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Buscar un cliente</h2>
+    <p>Podés buscar clientes desde el listado principal (<strong>Clientes</strong>) usando el buscador. La búsqueda funciona por nombre, razón social, CUIT o DNI.</p>
+    <p>También podés buscar clientes <strong>directamente desde una venta, factura o presupuesto</strong>: escribí el nombre o CUIT en el campo "Cliente" del formulario.</p>
+
+    <h2>Historial del cliente</h2>
+    <p>Desde el listado de Clientes, hacé clic en cualquier cliente para ver su ficha completa, que incluye:</p>
+    <ul>
+      <li>Todas las <strong>ventas</strong> realizadas por ese cliente</li>
+      <li>Todas las <strong>facturas electrónicas</strong> emitidas</li>
+      <li>Todos los <strong>presupuestos</strong> enviados con su estado (pendiente / aceptado / rechazado)</li>
+      <li>Todos los <strong>remitos</strong> generados</li>
+    </ul>
+
+    <h2>Consulta de CUIT vía AFIP</h2>
+    <p>Cuando ingresás un CUIT en la ficha del cliente, el sistema consulta automáticamente al servicio de AFIP y completa la razón social y condición de IVA si los encuentra. Esto evita errores en los datos fiscales.</p>
+
+    <div class="callout warn">
+      <p><strong>Atención:</strong> la consulta de CUIT requiere conexión a internet y que el servicio de AFIP esté disponible. Si AFIP está caído, podés completar los datos manualmente.</p>
+    </div>
+
+    <h2>Editar o eliminar un cliente</h2>
+    <p>Desde la ficha del cliente, podés editar cualquier dato con el botón <strong>Editar</strong>. Si eliminás un cliente, los registros históricos (ventas, facturas) se conservan — solo se desvincula el cliente de futuros documentos.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/presupuestos.html">← Presupuestos</a>
+      <a href="/docs/cuenta-corriente.html">Cuenta Corriente →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

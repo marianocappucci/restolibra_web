@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canales sin mesa — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html" class="active">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Canales sin mesa</h1>
+    <p class="docs-lead">No todos los pedidos pasan por una mesa. Restolibra maneja barra, takeaway y delivery con el mismo motor de comandas y cobro que el salón, en un tablero separado.</p>
+
+    <h2>Los tres canales</h2>
+    <table class="docs-table">
+      <thead><tr><th>Canal</th><th>Uso típico</th><th>Datos propios</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Barra</strong></td><td>Consumo en barra o mostrador, sin mesa asignada</td><td>—</td></tr>
+        <tr><td><strong>Takeaway</strong></td><td>El cliente retira el pedido en el local</td><td>Nombre, teléfono, hora de retiro</td></tr>
+        <tr><td><strong>Delivery</strong></td><td>Envío a domicilio</td><td>Nombre, teléfono, dirección, repartidor, costo de envío</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Tablero de pedidos</h2>
+    <p>Andá a <strong>Pedidos</strong> en el menú lateral para ver el tablero con los pedidos activos de los tres canales, organizados en columnas con la cantidad de pedidos de cada uno.</p>
+
+    <h2>Dar de alta un pedido</h2>
+    <ol class="step-list">
+      <li>En el tablero de <strong>Pedidos</strong>, hacé clic en <strong>Nuevo</strong> en la columna del canal que corresponda.</li>
+      <li>Completá los datos del canal: para takeaway, nombre y hora de retiro; para delivery, además dirección, repartidor y costo de envío.</li>
+      <li>Confirmá el alta — se abre el pedido, igual que al abrir una mesa.</li>
+      <li>Agregá los productos, enviá a cocina/barra y cobrá exactamente igual que un pedido de salón.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Costo de envío:</strong> en pedidos de delivery, el costo de envío se suma al total del pedido y aparece como un ítem "Envío" en la venta al cobrar — no hace falta cargarlo por separado.</p>
+    </div>
+
+    <h2>Separar el tablero en un monitor</h2>
+    <p>Igual que el KDS, el tablero de Pedidos se puede separar en su propia ventana para dejarlo fijo en un monitor del mostrador:</p>
+    <ol class="step-list">
+      <li>En <strong>Pedidos</strong>, hacé clic en <strong>Separar monitor</strong>.</li>
+      <li>Se abre una ventana sin barra de direcciones ni de favoritos, de solo lectura (sin el botón "Nuevo" — para eso volvés al tablero normal), con un botón de pantalla completa.</li>
+      <li>Esa ventana se actualiza sola cada 15 segundos.</li>
+    </ol>
+
+    <h2>¿Quién puede usar los canales sin mesa?</h2>
+    <p>El rol <em>Mozo</em> (ver <a href="/docs/usuarios.html">Usuarios y permisos</a>) tiene acceso completo a <strong>Pedidos</strong>, igual que al salón — puede dar de alta y cobrar pedidos de barra, takeaway y delivery desde el celular.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/comandas-kds.html">← Comandas y KDS</a>
+      <a href="/docs/recetas.html">Recetas y Food Cost →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

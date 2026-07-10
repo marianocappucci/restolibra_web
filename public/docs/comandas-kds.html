@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comandas y KDS — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html" class="active">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Comandas y KDS</h1>
+    <p class="docs-lead">Cuando enviás un pedido desde el salón, cada ítem llega a la pantalla de cocina o barra según su estación. El KDS (Kitchen Display System) reemplaza la comanda de papel con una pantalla que se actualiza sola.</p>
+
+    <h2>Asignar la estación de un producto</h2>
+    <p>Cada producto del menú tiene un campo <strong>Estación</strong> que determina a qué pantalla se envía cuando se pide:</p>
+    <table class="docs-table">
+      <thead><tr><th>Estación</th><th>A dónde va</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cocina</strong></td><td>Pantalla KDS Cocina — platos elaborados</td></tr>
+        <tr><td><strong>Barra</strong></td><td>Pantalla KDS Barra — bebidas y tragos</td></tr>
+        <tr><td><strong>Ninguna</strong></td><td>No genera comanda (por ejemplo, cubierto o panera)</td></tr>
+      </tbody>
+    </table>
+    <p>Configurá la estación desde <strong>Productos → editar producto</strong>.</p>
+
+    <h2>Pantallas KDS</h2>
+    <p>Accedé desde el ítem <strong>KDS</strong> del menú lateral, que te lleva a la pantalla de Cocina por defecto. Un toggle arriba te permite pasar a la de Barra sin salir del KDS.</p>
+    <p>Cada pantalla muestra las comandas activas en 3 columnas:</p>
+    <ol class="step-list">
+      <li><strong>Pendiente</strong> — recién llegó, todavía no se empezó a preparar.</li>
+      <li><strong>En preparación</strong> — se hizo clic en "Comenzar".</li>
+      <li><strong>Lista</strong> — se hizo clic en "Listo", esperando que el mozo la retire.</li>
+    </ol>
+    <p>Cada tarjeta muestra la mesa (o canal, si es un pedido sin mesa), el número de pedido, la ronda, los ítems con cantidad y notas, y los minutos transcurridos desde que llegó — con un color de urgencia (verde &lt; 10 min, amarillo &lt; 20 min, rojo ≥ 20 min) para detectar de un vistazo qué comanda se está demorando.</p>
+    <p>Un botón en cada tarjeta avanza la comanda al siguiente estado (Comenzar → Listo → Entregar). La pantalla se actualiza sola cada 5 segundos — no hace falta recargar.</p>
+
+    <h2>Reimprimir el ticket de una comanda</h2>
+    <p>Cada tarjeta tiene un botón de impresora que reimprime el ticket térmico de esa comanda (58/80mm, sin precios — solo lo que cocina/barra necesita preparar). También podés reimprimirlo desde el detalle del pedido en el salón.</p>
+
+    <h2>Separar el KDS en un monitor dedicado</h2>
+    <p>Si tenés más de un monitor en cocina o barra, podés dejar cada pantalla fija en el suyo, sin sidebar ni menú de por medio:</p>
+    <ol class="step-list">
+      <li>Entrá a <strong>KDS</strong> y elegí la estación (Cocina o Barra) con el toggle.</li>
+      <li>Hacé clic en <strong>Separar monitor</strong>.</li>
+      <li>Se abre una ventana nueva sin barra de direcciones ni de favoritos, con únicamente las 3 columnas de comandas — ideal para dejarla fija en la pantalla de cocina o de barra.</li>
+      <li>Arrastrá esa ventana al monitor que corresponda.</li>
+      <li>Dentro de esa ventana hay un botón de pantalla completa (esquina superior derecha) para ocultar también la barra de título del navegador.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Un monitor por estación:</strong> repetí el proceso desde otra pestaña para la segunda estación (por ejemplo, Cocina en el monitor de la línea caliente y Barra en el mostrador de bebidas).</p>
+    </div>
+
+    <h2>¿Quién puede ver el KDS?</h2>
+    <p>El KDS es para personal de cocina/barra, no para el mozo: un usuario con rol <em>Mozo</em> no tiene acceso a estas pantallas (ver <a href="/docs/usuarios.html">Usuarios y permisos</a>). El mozo interactúa con las comandas indirectamente, enviando pedidos desde el salón — no necesita ver el KDS para hacer su trabajo.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/salon.html">← Salón y Mesas</a>
+      <a href="/docs/canales.html">Canales sin mesa →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

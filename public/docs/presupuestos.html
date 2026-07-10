@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuestos — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html" class="active">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Presupuestos</h1>
+    <p class="docs-lead">Creá cotizaciones para eventos, catering o pedidos grandes por encargo. Los presupuestos no afectan el stock ni la caja hasta que se convierten en venta o remito.</p>
+
+    <h2>Para qué sirve</h2>
+    <p>El módulo de Presupuestos te permite enviar cotizaciones formales a tus clientes antes de concretar la venta — típico en catering, eventos privados o pedidos corporativos grandes. Podés:</p>
+    <ul>
+      <li>Armar un presupuesto con ítems, precios e IVA configurables</li>
+      <li>Enviarlo por email con el PDF adjunto</li>
+      <li>Hacer seguimiento del estado (enviado, aceptado, rechazado, vencido)</li>
+      <li>Convertirlo en remito o generar la factura directamente cuando el cliente acepta</li>
+    </ul>
+
+    <h2>Crear un presupuesto</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Ventas → Presupuestos → Nuevo presupuesto</strong>.</li>
+      <li>Seleccioná el <strong>cliente</strong>: buscá uno existente por nombre o CUIT, o creá uno nuevo desde el mismo formulario.</li>
+      <li>Completá la <strong>fecha</strong> del presupuesto y la fecha <strong>Válido hasta</strong>.</li>
+      <li>Seleccioná la <strong>tasa de IVA</strong> que aplica: 21%, 10,5% o 0%.</li>
+      <li>Agregá los <strong>ítems</strong>: buscá un producto del menú usando el campo de búsqueda (autocompleta automáticamente) o escribí una descripción libre si el artículo no está en el catálogo.</li>
+      <li>Ajustá la <strong>cantidad</strong> y el <strong>precio unitario</strong> de cada ítem.</li>
+      <li>Completá las <strong>observaciones</strong> si necesitás aclarar algo (horario de entrega, condiciones especiales, etc.).</li>
+      <li>Guardá el presupuesto. Queda en estado <strong>Borrador</strong>.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Búsqueda de productos:</strong> el campo de búsqueda autocompleta desde el menú, pero podés escribir libremente cualquier descripción si el producto no está cargado en el sistema.</p>
+    </div>
+
+    <h2>Estados del presupuesto</h2>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Estado</th><th>Descripción</th><th>Desde</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Borrador</strong></td><td>Se está armando, aún no se envió al cliente</td><td>Estado inicial al crear</td></tr>
+        <tr><td><strong>Enviado</strong></td><td>Se envió al cliente, esperando respuesta</td><td>Borrador</td></tr>
+        <tr><td><strong>Aceptado</strong></td><td>El cliente aprobó el presupuesto</td><td>Enviado</td></tr>
+        <tr><td><strong>Rechazado</strong></td><td>El cliente no aceptó, o se descartó manualmente</td><td>Borrador o Enviado</td></tr>
+        <tr><td><strong>Vencido</strong></td><td>Pasó la fecha de validez sin respuesta</td><td>Se marca automáticamente</td></tr>
+        <tr><td><strong>Facturado</strong></td><td>Ya se emitió la factura sobre este presupuesto</td><td>Aceptado</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p><strong>Reactivar:</strong> desde los estados Rechazado o Vencido podés usar el botón <strong>Reactivar como Borrador</strong> para retomar el presupuesto sin perder los ítems cargados.</p>
+    </div>
+
+    <h2>Convertir a remito</h2>
+    <p>Cuando el cliente acepta, podés generar el remito de entrega directamente desde el presupuesto. En el detalle del presupuesto aparece el botón <strong>Aceptar y convertir a remito</strong>, que crea el remito automáticamente con los mismos ítems y cantidades.</p>
+
+    <div class="callout success">
+      <p><strong>Stock:</strong> el stock (o los insumos de receta) se descuenta cuando se confirma el remito, no al crear el presupuesto.</p>
+    </div>
+
+    <h2>Generar factura desde un presupuesto</h2>
+    <p>Cuando el presupuesto está en estado <strong>Aceptado</strong>, aparece el botón <strong>Generar Factura</strong>. Al hacer clic, el sistema abre el formulario de nueva factura electrónica pre-cargado con todos los ítems del presupuesto. Completá los datos de facturación y confirmá para emitir la factura ante ARCA.</p>
+    <p>Al emitir la factura, el presupuesto pasa automáticamente al estado <strong>Facturado</strong>.</p>
+
+    <h2>Enviar por email</h2>
+    <p>Desde el detalle de cualquier presupuesto podés hacer clic en <strong>Enviar por email</strong>. El sistema envía el PDF del presupuesto al email registrado del cliente. Requiere tener configurado el servidor de correo en <a href="/docs/integraciones.html">Integraciones → Email</a>.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/ventas.html">← Ventas</a>
+      <a href="/docs/clientes.html">Clientes →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

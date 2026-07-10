@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depósitos — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html" class="active">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Depósitos <span class="feature-badge badge-premium">Premium</span></h1>
+    <p class="docs-lead">Gestioná el inventario de insumos separado por depósito o sucursal — por ejemplo, la cámara fría, el depósito seco y una segunda sucursal. Cada depósito tiene su propio stock y podés transferir mercadería entre ellos.</p>
+
+    <div class="callout">
+      <p><strong>Plan requerido:</strong> el módulo de Depósitos está disponible en el plan <strong>Premium</strong>.</p>
+    </div>
+
+    <h2>Para qué sirve</h2>
+    <p>El módulo de Depósitos te permite separar el stock por ubicación física: cámaras, depósitos secos, sucursales. Cada depósito lleva su propio inventario y el sistema sabe exactamente cuántos insumos hay en cada uno. Podés:</p>
+    <ul>
+      <li>Crear tantos depósitos como necesités (depósito seco, cámara fría, sucursal)</li>
+      <li>Ver el stock de cada producto o insumo por depósito</li>
+      <li>Transferir mercadería de un depósito a otro con trazabilidad completa</li>
+      <li>Configurar cuál es el depósito predeterminado para las ventas y el descuento de recetas</li>
+    </ul>
+
+    <h2>Crear un depósito</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Depósitos → Nuevo depósito</strong>.</li>
+      <li>Ingresá un <strong>nombre</strong> descriptivo (por ejemplo: "Depósito seco", "Sucursal Norte").</li>
+      <li>Agregá una <strong>descripción</strong> opcional.</li>
+      <li>Guardá el depósito. Si querés que sea el predeterminado, marcalo con esa opción antes de guardar.</li>
+    </ol>
+
+    <h2>Depósito predeterminado</h2>
+    <p>El depósito predeterminado es el que se descuenta automáticamente al cobrar un pedido o registrar una venta, sin necesidad de seleccionarlo cada vez. Siempre hay exactamente un depósito activo como predeterminado. Al marcar uno nuevo como predeterminado, el anterior pierde esa condición.</p>
+
+    <h2>Ver stock por depósito</h2>
+    <p>Desde la ficha de cada depósito podés ver el listado completo de productos e insumos con el stock actual en ese depósito. El stock de un mismo insumo puede diferir entre depósitos según las ventas, transferencias y ajustes realizados en cada uno.</p>
+
+    <h2>Transferir stock entre depósitos</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Depósitos → Transferir stock</strong>.</li>
+      <li>Seleccioná el depósito <strong>origen</strong> y el depósito <strong>destino</strong>.</li>
+      <li>Buscá el producto o insumo que querés transferir.</li>
+      <li>Ingresá la <strong>cantidad</strong> a transferir.</li>
+      <li>Confirmá la transferencia. El sistema descuenta la cantidad del origen y la acredita en el destino de forma inmediata.</li>
+    </ol>
+
+    <div class="callout warn">
+      <p><strong>Atención:</strong> las transferencias son irreversibles desde la interfaz. Si necesitás corregir una transferencia, realizá una en sentido inverso con la misma cantidad.</p>
+    </div>
+
+    <h2>Ajustes de stock</h2>
+    <p>Los ajustes manuales de inventario (correcciones por diferencia de recuento, mermas, etc.) se realizan desde <strong>Productos → Stock</strong>. Al hacer un ajuste, el sistema te pide que seleccionés el depósito al que aplica el cambio.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/tesoreria.html">← Tesorería</a>
+      <a href="/docs/reportes.html">Reportes →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

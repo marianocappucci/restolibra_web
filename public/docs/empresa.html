@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos del negocio — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html" class="active">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Datos del negocio</h1>
+    <p class="docs-lead">Configurá la información de tu restaurante, bar o local que aparecerá en facturas, comandas y tickets. Es lo primero que debés hacer al ingresar por primera vez.</p>
+
+    <h2>Acceder a la configuración</h2>
+    <p>Andá a <strong>Configuración</strong> en el menú lateral y seleccioná la pestaña <strong>Empresa</strong>.</p>
+
+    <h2>Campos disponibles</h2>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Campo</th><th>Descripción</th><th>Requerido</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Razón social</strong></td>
+          <td>Nombre legal del negocio tal como figura en AFIP</td>
+          <td>Sí</td>
+        </tr>
+        <tr>
+          <td><strong>CUIT</strong></td>
+          <td>Número de CUIT sin guiones (solo números)</td>
+          <td>Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Nombre comercial</strong></td>
+          <td>Nombre con el que se conoce el restaurante (puede ser diferente a la razón social)</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Dirección</strong></td>
+          <td>Domicilio fiscal completo</td>
+          <td>Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Localidad / Provincia</strong></td>
+          <td>Ciudad y provincia donde operás</td>
+          <td>Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Teléfono</strong></td>
+          <td>Teléfono de contacto, se muestra en documentos</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td>Email de contacto del negocio</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Condición ante IVA</strong></td>
+          <td>Responsable Inscripto, Monotributista, Exento, etc.</td>
+          <td>Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Inicio de actividades</strong></td>
+          <td>Fecha de inicio según AFIP</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Logo</strong></td>
+          <td>Imagen PNG/JPG del logo, se usa en facturas, tickets y comandas</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Logo del negocio</h2>
+    <p>El logo aparece en el encabezado de las facturas y en los tickets térmicos. Para subir o cambiar el logo:</p>
+    <ol class="step-list">
+      <li>En la pestaña <strong>Empresa</strong>, buscá la sección "Logo".</li>
+      <li>Hacé clic en <strong>Seleccionar archivo</strong> y elegí una imagen PNG o JPG.</li>
+      <li>Recomendamos un logo cuadrado de al menos 200×200 píxeles con fondo blanco o transparente.</li>
+      <li>Guardá los cambios.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Tip:</strong> Si el logo tiene fondo transparente (PNG), se verá mejor en documentos con fondo blanco. El sistema redimensiona automáticamente la imagen para los documentos.</p>
+    </div>
+
+    <h2>Punto de venta</h2>
+    <p>El número de punto de venta (PV) se usa para emitir facturas electrónicas ante ARCA. Por defecto es el punto de venta 5. Si necesitás cambiarlo, hablá con soporte — requiere configuración adicional en AFIP.</p>
+
+    <div class="callout warn">
+      <p><strong>Importante:</strong> El CUIT y el punto de venta no se pueden cambiar arbitrariamente si ya emitiste facturas. Un cambio en estos datos puede generar inconsistencias contables. Siempre consultá con tu contador antes de modificarlos.</p>
+    </div>
+
+    <h2>¿Cuándo se usan estos datos?</h2>
+    <p>La información del negocio aparece automáticamente en:</p>
+    <ul>
+      <li>Encabezado de facturas electrónicas (A, B, C)</li>
+      <li>Tickets térmicos de venta y comandas de cocina/barra</li>
+      <li>Presupuestos y remitos</li>
+      <li>Reportes exportados en PDF</li>
+    </ul>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/primeros-pasos.html">← Primeros pasos</a>
+      <a href="/docs/usuarios.html">Usuarios y permisos →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

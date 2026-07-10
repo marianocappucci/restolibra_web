@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primeros pasos — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html" class="active">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Primeros pasos</h1>
+    <p class="docs-lead">Guía de inicio rápido para configurar Restolibra y empezar a operar tu restaurante, bar o local en el menor tiempo posible.</p>
+
+    <h2>Acceder al sistema</h2>
+    <p>Tu sistema Restolibra tiene una URL propia con el formato:</p>
+    <div class="callout">
+      <p><strong>https://tu-restaurante.restolibra.com.ar</strong></p>
+      <p>El subdominio es el identificador único de tu negocio. Si no lo recordás, contactá a soporte.</p>
+    </div>
+    <p>Ingresá con el usuario y contraseña que te proporcionó el administrador. Por defecto el primer usuario es <kbd>admin</kbd>.</p>
+
+    <h2>Configurar los datos de tu negocio</h2>
+    <p>Lo primero que debés hacer es completar la información de tu restaurante. Andá a <strong>Configuración → Empresa</strong> y completá:</p>
+    <ul>
+      <li><strong>Razón social:</strong> nombre legal de tu negocio</li>
+      <li><strong>CUIT:</strong> número de CUIT sin guiones</li>
+      <li><strong>Dirección:</strong> domicilio fiscal</li>
+      <li><strong>Condición ante IVA:</strong> Responsable Inscripto, Monotributista, etc.</li>
+      <li><strong>Logo:</strong> imagen PNG o JPG, se usará en facturas, tickets y comandas</li>
+    </ul>
+    <p>Guardá los cambios haciendo clic en <strong>Guardar empresa</strong>.</p>
+
+    <h2>Configurar salones y mesas</h2>
+    <p>Antes de poder tomar pedidos en el salón, necesitás dar de alta tus salones y mesas:</p>
+    <ol class="step-list">
+      <li>Andá a <strong>Salón → Config. salón</strong>.</li>
+      <li>Creá al menos un <strong>salón</strong> (por ejemplo "Planta baja", "Terraza").</li>
+      <li>Dentro de cada salón, agregá las <strong>mesas</strong> con su nombre y capacidad.</li>
+      <li>Opcionalmente activá <strong>cubierto</strong> y/o <strong>panera</strong> con su precio — se cobran automáticamente al abrir una mesa.</li>
+    </ol>
+    <p>Ver el detalle completo en <a href="/docs/salon.html">Salón y Mesas</a>.</p>
+
+    <h2>Cargar tu menú</h2>
+    <p>Antes de hacer ventas o tomar comandas, necesitás tener tu menú cargado. Andá a <strong>Productos</strong> y hacé clic en <strong>Nuevo producto</strong>. Por cada plato o bebida completá:</p>
+    <ul>
+      <li>Nombre y descripción</li>
+      <li>Precio de venta</li>
+      <li><strong>Estación:</strong> cocina, barra o ninguna — define a qué pantalla KDS se envía la comanda</li>
+      <li>Stock inicial y stock mínimo, si controlás inventario del insumo directamente</li>
+    </ul>
+
+    <div class="callout success">
+      <p><strong>Recetas y food cost:</strong> Si querés que el sistema descuente automáticamente los insumos de cada plato (harina, carne, etc.) en vez del plato mismo, cargá una receta desde el detalle del producto. Ver <a href="/docs/recetas.html">Recetas y Food Cost</a>.</p>
+    </div>
+
+    <h2>Abrir tu primer turno de caja</h2>
+    <p>Para registrar cobros en efectivo, primero tenés que abrir un turno de caja:</p>
+    <ol class="step-list">
+      <li>Andá a <strong>Caja</strong> en el menú lateral.</li>
+      <li>Si no hay un turno abierto, verás el botón <strong>Abrir turno</strong>.</li>
+      <li>Ingresá el monto inicial en efectivo (lo que tenés en la caja al empezar).</li>
+      <li>Confirmá. Ya podés registrar pedidos.</li>
+    </ol>
+
+    <h2>Registrar tu primer pedido</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Salón</strong>, elegí una mesa libre y hacé clic en ella para abrirla.</li>
+      <li>Indicá la cantidad de comensales y confirmá.</li>
+      <li>Buscá y agregá los productos del menú al pedido.</li>
+      <li>Hacé clic en <strong>Enviar</strong> para mandar los ítems a las pantallas de cocina/barra (KDS).</li>
+      <li>Cuando el cliente pide la cuenta, hacé clic en <strong>Cobrar</strong>, seleccioná el/los medios de pago y confirmá.</li>
+    </ol>
+    <p>La mesa vuelve a estar libre y el pedido queda registrado como venta.</p>
+
+    <h2>Emitir tu primera factura electrónica</h2>
+    <p>Si tenés el módulo de facturación activo y ARCA configurado, podés emitir facturas directamente desde la venta o desde <strong>Facturación → Nueva factura</strong>. Antes de emitir la primera factura, asegurate de haber configurado el certificado ARCA en <strong>Configuración → ARCA</strong>.</p>
+
+    <div class="callout warn">
+      <p><strong>Atención:</strong> La facturación electrónica requiere certificado digital vigente emitido por AFIP/ARCA. Si no lo tenés, consultá con tu contador.</p>
+    </div>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/">← Introducción</a>
+      <a href="/docs/empresa.html">Datos del negocio →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

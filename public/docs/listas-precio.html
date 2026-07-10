@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listas de Precios — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html" class="active">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Listas de Precios</h1>
+    <p class="docs-lead">Creá múltiples listas de precios para distintos canales — salón, delivery, eventos — y aplicalas directamente al vender.</p>
+
+    <h2>Para qué sirve</h2>
+    <p>El módulo de Listas de Precios te permite manejar precios diferenciados por canal o segmento sin necesidad de modificar el precio base de cada producto. Podés tener, por ejemplo:</p>
+    <ul>
+      <li>Una lista <strong>Salón</strong> con el precio de venta estándar</li>
+      <li>Una lista <strong>Delivery</strong> con un recargo para compensar comisiones de plataformas</li>
+      <li>Una lista <strong>Eventos</strong> basada en el precio de costo más un margen distinto</li>
+    </ul>
+    <p>Al crear una venta o pedido, elegís qué lista aplicar y los precios de los productos se autocompletan desde esa lista.</p>
+
+    <h2>Crear una lista de precios</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Inventario → Listas de precios → Nueva lista</strong>.</li>
+      <li>Ingresá el <strong>nombre</strong> de la lista (por ejemplo, "Delivery") y una descripción opcional.</li>
+      <li>Elegí la <strong>fuente inicial de precios</strong>:
+        <ul>
+          <li><strong>Vacía</strong> — se crea sin precios precargados; los cargás manualmente.</li>
+          <li><strong>Precio de venta del producto</strong> — importa el precio base de cada producto.</li>
+          <li><strong>Precio de costo del producto</strong> — importa el costo registrado (o calculado por receta).</li>
+          <li><strong>Otra lista existente</strong> — copia los precios de una lista ya creada.</li>
+        </ul>
+      </li>
+      <li>Guardá la lista. El sistema la crea y te lleva al detalle donde podés editar los precios individuales.</li>
+    </ol>
+
+    <h2>Editar precios en la lista</h2>
+    <p>En el detalle de la lista aparece una tabla con todos los productos activos. Para cada producto se muestra el precio actual de la lista y el <strong>margen % respecto al costo</strong>.</p>
+    <ul>
+      <li>Hacé clic en el precio de cualquier producto para editarlo directamente en la celda.</li>
+      <li>Usá el filtro por <strong>categoría</strong> para trabajar con un grupo de productos a la vez.</li>
+      <li>Cuando termines, presioná <strong>Guardar cambios</strong> para confirmar todas las modificaciones.</li>
+    </ul>
+
+    <div class="callout warn">
+      <p><strong>Atención:</strong> si intentás salir de la página con precios modificados sin guardar, el sistema te avisa para que no pierdas los cambios.</p>
+    </div>
+
+    <h2>Actualización en lote por porcentaje</h2>
+    <p>El botón <strong>Actualizar en lote</strong> permite ajustar precios de varios productos a la vez sin editar uno por uno. Parámetros disponibles:</p>
+
+    <table class="docs-table">
+      <thead>
+        <tr><th>Parámetro</th><th>Descripción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Base</strong></td><td>Precio sobre el que se aplica el ajuste: precio actual de la lista, precio de venta del producto, o precio de costo</td></tr>
+        <tr><td><strong>Porcentaje</strong></td><td>Valor positivo para aumento, negativo para descuento (por ejemplo, 10 = +10%, -5 = −5%)</td></tr>
+        <tr><td><strong>Categoría</strong></td><td>Opcional. Si se elige una categoría, el ajuste aplica solo a esos productos</td></tr>
+      </tbody>
+    </table>
+
+    <p>Antes de confirmar, el sistema muestra una <strong>vista previa</strong> con el precio nuevo de cada producto afectado. Podés revisar y luego aceptar o cancelar.</p>
+
+    <div class="callout success">
+      <p><strong>Tip:</strong> usá la actualización en lote cuando tus proveedores aumentan costos de insumos. Seleccioná "Precio de costo" como base y aplicá el porcentaje de aumento para mantener tus márgenes.</p>
+    </div>
+
+    <h2>Usar la lista en un pedido o venta</h2>
+    <ol class="step-list">
+      <li>Al abrir una mesa o crear un pedido, si hay listas activas en el sistema aparece un selector <strong>Lista de precios</strong>.</li>
+      <li>Elegí la lista deseada.</li>
+      <li>Al agregar productos, el buscador devuelve automáticamente los precios de esa lista en lugar del precio base del producto.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>Tip:</strong> si un producto no tiene precio definido en la lista seleccionada, el sistema usa el precio de venta base del producto como respaldo.</p>
+    </div>
+
+    <h2>Activar o desactivar una lista</h2>
+    <p>Cada lista puede marcarse como <strong>activa</strong> o <strong>inactiva</strong> desde su configuración. Las listas inactivas no aparecen en el selector. Esto es útil para archivar listas de temporadas o promociones anteriores sin eliminarlas.</p>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/productos-stock.html">← Productos y Stock</a>
+      <a href="/docs/egresos-proveedores.html">Egresos y Proveedores →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>

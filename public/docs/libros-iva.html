@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libros IVA Digital — Documentación Restolibra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none">
+    <div class="logo-icon">R</div>
+    Restolibra
+  </a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+
+    <div class="docs-sidebar-section">Configuración</div>
+    <a href="/docs/empresa.html">Datos del negocio</a>
+    <a href="/docs/usuarios.html">Usuarios y permisos</a>
+    <a href="/docs/configuracion.html">Configuración general</a>
+
+    <div class="docs-sidebar-section">Salón y Comandas</div>
+    <a href="/docs/salon.html">Salón y Mesas</a>
+    <a href="/docs/comandas-kds.html">Comandas y KDS</a>
+    <a href="/docs/canales.html">Canales sin mesa</a>
+    <a href="/docs/recetas.html">Recetas y Food Cost</a>
+
+    <div class="docs-sidebar-section">Módulos</div>
+    <a href="/docs/ventas.html">Ventas</a>
+    <a href="/docs/presupuestos.html">Presupuestos</a>
+    <a href="/docs/clientes.html">Clientes</a>
+    <a href="/docs/cuenta-corriente.html">Cuenta Corriente</a>
+    <a href="/docs/caja-turnos.html">Caja y Turnos</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/productos-stock.html">Productos y Stock</a>
+    <a href="/docs/listas-precio.html">Listas de Precios</a>
+    <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
+    <a href="/docs/tesoreria.html">Tesorería</a>
+    <a href="/docs/depositos.html">Depósitos</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/libros-iva.html" class="active">Libros IVA Digital</a>
+    <a href="/docs/integraciones.html">Integraciones</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Libros IVA Digital</h1>
+    <p class="docs-lead">Generá los Libros IVA Ventas y Compras en formato REGINFO_CV (RG 3685 de ARCA) para importar directamente en el Aplicativo REGINFO. Requerido para Responsables Inscriptos.</p>
+
+    <div class="callout">
+      <p><strong>Plan requerido:</strong> el módulo de Libros IVA Digital está disponible en planes Estándar y Premium. El CUIT del negocio debe estar configurado en <strong>Configuración → Empresa</strong>.</p>
+    </div>
+
+    <h2>Acceder al módulo</h2>
+    <p>Andá a <strong>Análisis → Libros IVA Digital</strong> en el menú lateral.</p>
+
+    <h2>Selección de período</h2>
+    <p>Usá los filtros <strong>Desde</strong> y <strong>Hasta</strong> para definir el rango de fechas del libro. Por defecto el sistema muestra el mes actual. Una vez definido el período, hacé clic en <strong>Filtrar</strong> para cargar los datos.</p>
+
+    <h2>Libro IVA Ventas</h2>
+    <p>La pestaña <strong>Ventas</strong> muestra todos los comprobantes electrónicos emitidos en el período: facturas A, B y C, notas de débito y notas de crédito.</p>
+
+    <h3>KPIs del período</h3>
+    <ul>
+      <li>Cantidad de comprobantes emitidos</li>
+      <li>Neto gravado total</li>
+      <li>IVA total del período</li>
+      <li>Total facturado</li>
+    </ul>
+
+    <h3>Resumen por alícuota</h3>
+    <p>Tabla que agrupa la cantidad de comprobantes y el monto de IVA correspondiente a cada tasa (0 %, 10,5 %, 21 %, etc.).</p>
+
+    <h3>Detalle de comprobantes</h3>
+    <p>Tabla con una fila por comprobante: fecha, tipo, punto de venta y número, CAE, cliente, CUIT, neto gravado, IVA y total.</p>
+
+    <div class="callout">
+      <p><strong>Notas de Crédito:</strong> aparecen con importes negativos y reducen el total del período.<br>
+      <strong>Facturas C</strong> (Monotributista): no tienen IVA discriminado; el total se refleja como neto sin alícuota.</p>
+    </div>
+
+    <h2>Libro IVA Compras</h2>
+    <p>La pestaña <strong>Compras</strong> lista los egresos del período registrados con tipo <em>Factura</em> que tienen proveedor con CUIT asignado.</p>
+
+    <h3>Detalle de comprobantes</h3>
+    <p>Tabla con fecha, número, proveedor, CUIT, neto, alícuota de IVA, monto de IVA y total.</p>
+
+    <div class="callout">
+      <p><strong>Importante:</strong> solo se incluyen egresos de tipo <em>Factura</em>. Tickets, recibos y otros tipos de comprobante no aparecen en el libro de compras.</p>
+    </div>
+
+    <h2>Exportar archivos REGINFO</h2>
+    <p>Cada pestaña tiene botones de descarga que generan los archivos listos para importar en el Aplicativo REGINFO. Los archivos usan formato <em>pipe-delimited</em> (<code>|</code>), codificación UTF-8 y no incluyen encabezados.</p>
+
+    <h3>Archivos generados</h3>
+    <table class="docs-table">
+      <thead>
+        <tr><th>Libro</th><th>Archivo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>IVA Ventas — comprobantes</td>
+          <td><code>REGINFO_VENTAS_CBTE_YYYYMM.txt</code></td>
+        </tr>
+        <tr>
+          <td>IVA Ventas — alícuotas</td>
+          <td><code>REGINFO_VENTAS_ALICUOTAS_YYYYMM.txt</code></td>
+        </tr>
+        <tr>
+          <td>IVA Compras — comprobantes</td>
+          <td><code>REGINFO_COMPRAS_CBTE_YYYYMM.txt</code></td>
+        </tr>
+        <tr>
+          <td>IVA Compras — alícuotas</td>
+          <td><code>REGINFO_COMPRAS_ALICUOTAS_YYYYMM.txt</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Cómo importar en ARCA</h2>
+    <ol class="step-list">
+      <li>Abrí el <strong>Aplicativo REGINFO</strong> (disponible en el sitio oficial de ARCA).</li>
+      <li>Seleccioná el <strong>período fiscal</strong> correspondiente.</li>
+      <li>Para el <strong>Libro IVA Ventas</strong>: importá primero el archivo CBTE y luego el archivo ALICUOTAS.</li>
+      <li>Repetí el paso anterior para el <strong>Libro IVA Compras</strong>.</li>
+      <li>El aplicativo valida la consistencia entre los archivos CBTE y ALICUOTAS de cada libro.</li>
+    </ol>
+
+    <h2>Códigos ARCA de referencia</h2>
+
+    <h3>Tipos de comprobante</h3>
+    <table class="docs-table">
+      <thead>
+        <tr><th>Tipo de comprobante</th><th>Código ARCA</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Factura A</td><td>01</td></tr>
+        <tr><td>Nota de Débito A</td><td>02</td></tr>
+        <tr><td>Nota de Crédito A</td><td>03</td></tr>
+        <tr><td>Factura B</td><td>06</td></tr>
+        <tr><td>Nota de Débito B</td><td>07</td></tr>
+        <tr><td>Nota de Crédito B</td><td>08</td></tr>
+        <tr><td>Factura C</td><td>11</td></tr>
+        <tr><td>Nota de Débito C</td><td>12</td></tr>
+        <tr><td>Nota de Crédito C</td><td>13</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Alícuotas de IVA</h3>
+    <table class="docs-table">
+      <thead>
+        <tr><th>Alícuota IVA</th><th>Código ARCA</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0 %</td><td>3</td></tr>
+        <tr><td>2,5 %</td><td>9</td></tr>
+        <tr><td>5 %</td><td>8</td></tr>
+        <tr><td>10,5 %</td><td>4</td></tr>
+        <tr><td>21 %</td><td>5</td></tr>
+        <tr><td>27 %</td><td>6</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Limitaciones actuales</h2>
+
+    <div class="callout warn">
+      <p><strong>IVA Compras — tipo de comprobante del proveedor:</strong> el sistema asume código 01 (Factura A) para todos los egresos. Si el proveedor emite Factura B o C, verificá y ajustá el tipo manualmente en el Aplicativo REGINFO antes de presentar.</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>Facturas con ítems de distintas alícuotas:</strong> la tasa de IVA de cada factura de venta se deduce del total del comprobante. Si una factura combina ítems con diferentes alícuotas, revisá que el aplicativo las refleje correctamente antes de confirmar la presentación.</p>
+    </div>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/reportes.html">← Reportes</a>
+      <a href="/docs/integraciones.html">Integraciones →</a>
+    </div>
+  </main>
+
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 Restolibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+
+</body>
+</html>
