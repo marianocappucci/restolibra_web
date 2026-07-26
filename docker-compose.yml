@@ -19,7 +19,7 @@ services:
     environment:
       - DOCS_AUTH_SECRET=${DOCS_AUTH_SECRET:-}
       - SECRET_KEY=${DOCS_SESSION_SECRET:-restolibra-docs-secret-change-me}
-      - ADMIN_API_URL=${ADMIN_API_URL:-https://admin.restolibra.com.ar}
+      - APEX_DOMAIN=${APEX_DOMAIN:-restolibra.com.ar}
     networks:
       - stack-net
 
