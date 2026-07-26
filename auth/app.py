@@ -14,6 +14,8 @@ Server-to-server: la llamada usa el secreto compartido DOCS_AUTH_SECRET.
 """
 import os
 import re
+import threading
+import time
 
 import httpx
 from fastapi import FastAPI, Request, Form
@@ -28,7 +30,34 @@ COOKIE_NAME  = "docs_session"
 MAX_AGE      = 86400 * 7  # 7 dias
 SLUG_RE      = re.compile(r"^[a-z0-9-]{1,63}$")
 
+LOGIN_MAX_INTENTOS = 5
+LOGIN_VENTANA_SEGUNDOS = 15 * 60
+
 _signer = URLSafeTimedSerializer(SECRET_KEY)
+
+# Rate limiting de /login-docs en memoria del propio proceso -- mismo patron
+# que AdminAuth de libracore.auth (ver libracore/libracore/auth.py). Alcanza
+# porque cada landing corre como un unico proceso; se resetea si el
+# contenedor reinicia, aceptable para este backend de bajo trafico.
+_intentos_fallidos: dict[str, list[float]] = {}
+_intentos_lock = threading.Lock()
+
+
+def _rate_limit_excedido(ip: str) -> bool:
+    if not ip:
+        return False
+    ahora = time.time()
+    with _intentos_lock:
+        vigentes = [t for t in _intentos_fallidos.get(ip, []) if ahora - t < LOGIN_VENTANA_SEGUNDOS]
+        _intentos_fallidos[ip] = vigentes
+        return len(vigentes) >= LOGIN_MAX_INTENTOS
+
+
+def _registrar_intento_fallido(ip: str):
+    if not ip:
+        return
+    with _intentos_lock:
+        _intentos_fallidos.setdefault(ip, []).append(time.time())
 
 app = FastAPI(title="Restolibra Docs Auth", docs_url=None, redoc_url=None)
 
@@ -90,10 +119,17 @@ async def login_form():
 
 
 @app.post("/login-docs", response_class=HTMLResponse)
-async def login_submit(slug: str = Form(...), username: str = Form(...), password: str = Form(...)):
+async def login_submit(request: Request, slug: str = Form(...), username: str = Form(...), password: str = Form(...)):
     slug = slug.strip().lower()
     if not SLUG_RE.match(slug):
         return HTMLResponse(_render_login("Subdominio inválido.", slug, username), status_code=400)
+
+    ip = request.client.host if request.client else ""
+    if _rate_limit_excedido(ip):
+        return HTMLResponse(
+            _render_login("Demasiados intentos fallidos. Esperá unos minutos y volvé a intentar.", slug, username),
+            status_code=429,
+        )
 
     domain = f"{slug}.{APEX_DOMAIN}"
     try:
@@ -111,6 +147,7 @@ async def login_submit(slug: str = Form(...), username: str = Form(...), passwor
         )
 
     if not data.get("valid"):
+        _registrar_intento_fallido(ip)
         return HTMLResponse(_render_login("Subdominio, usuario o contraseña incorrectos.", slug, username), status_code=401)
 
     token = _signer.dumps({"slug": slug, "username": username})
