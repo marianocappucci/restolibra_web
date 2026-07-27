@@ -1,3 +1,8 @@
+/* Generado por libra-web-kit/scripts/generate_css.py -- NO EDITAR A MANO.
+   Editar libra_web_kit/templates/style.css.template (compartido) o
+   libra_web_kit/site_css_tokens.py (valores de este sitio), y correr
+   el script de nuevo. */
+
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
   --brand:       #ea580c;

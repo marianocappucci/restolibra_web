@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recetas y Food Cost — Documentación Restolibra</title>
+  <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -12,10 +13,7 @@
 <body>
 
 <nav class="navbar">
-  <a href="/" class="navbar-brand" style="text-decoration:none">
-    <div class="logo-icon">R</div>
-    Restolibra
-  </a>
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">R</div>Restolibra</a>
   <div class="navbar-links">
     <a href="/#funciones">Funciones</a>
     <a href="/#planes">Planes</a>
@@ -24,23 +22,19 @@
 </nav>
 
 <div class="docs-wrapper">
-
   <nav class="docs-sidebar">
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-
     <div class="docs-sidebar-section">Configuración</div>
     <a href="/docs/empresa.html">Datos del negocio</a>
     <a href="/docs/usuarios.html">Usuarios y permisos</a>
     <a href="/docs/configuracion.html">Configuración general</a>
-
     <div class="docs-sidebar-section">Salón y Comandas</div>
     <a href="/docs/salon.html">Salón y Mesas</a>
     <a href="/docs/comandas-kds.html">Comandas y KDS</a>
     <a href="/docs/canales.html">Canales sin mesa</a>
     <a href="/docs/recetas.html" class="active">Recetas y Food Cost</a>
-
     <div class="docs-sidebar-section">Módulos</div>
     <a href="/docs/ventas.html">Ventas</a>
     <a href="/docs/presupuestos.html">Presupuestos</a>
@@ -60,135 +54,120 @@
 
   <main class="docs-content">
     <h1>Recetas y Food Cost <span class="feature-badge badge-estandar">Estándar</span></h1>
-    <p class="docs-lead">En vez de descontar del stock el plato terminado, Restolibra puede descontar los insumos reales que lo componen — y calcular el costo y el margen de cada plato automáticamente.</p>
-
-    <div class="callout">
-      <p><strong>Plan requerido:</strong> el módulo de Recetas está disponible en planes Estándar y Premium.</p>
-    </div>
-
-    <h2>Insumos vs. productos vendibles</h2>
-    <p>Cada producto tiene un campo <strong>Vendible</strong>:</p>
-    <ul>
-      <li><strong>Vendible</strong> — aparece en el menú del mozo y en el buscador de ventas/facturas. Es lo que el cliente pide y paga.</li>
-      <li><strong>No vendible (insumo)</strong> — no aparece en el menú ni en ventas, pero sí en Stock y como ingrediente disponible para armar recetas. Por ejemplo: harina, carne picada, gaseosa en botellón.</li>
-    </ul>
-    <p>Cargá tus insumos como productos normales, desmarcando la opción <strong>Vendible</strong>.</p>
-
-    <h2>Crear una receta</h2>
-    <ol class="step-list">
-      <li>Andá al detalle de un producto vendible (por ejemplo, "Milanesa con papas") y abrí la pestaña <strong>Receta</strong>.</li>
-      <li>Agregá los insumos que componen el plato con su cantidad exacta (por ejemplo, 200g de carne, 150g de papa, 30ml de aceite).</li>
-      <li>El sistema calcula automáticamente el <strong>costo total</strong> y el <strong>food cost %</strong> (costo / precio de venta) en tiempo real a medida que cargás ingredientes.</li>
-      <li>Ajustá el <strong>rendimiento</strong> (rinde) si la receta produce más de una porción, y el <strong>% de rendimiento</strong> si hay pérdida de cocción (por ejemplo, la carne pierde peso al cocinarse).</li>
-      <li>Guardá la receta.</li>
-    </ol>
-
-    <div class="callout success">
-      <p><strong>Food cost en vivo:</strong> mientras cargás ingredientes, ves el costo y el % de food cost actualizarse al instante — así podés ajustar cantidades o precio de venta antes de guardar.</p>
-    </div>
-
-    <h2>Descuento de stock al vender</h2>
-    <p>Cuando un plato con receta se vende (desde el salón, canales sin mesa o el POS), el sistema descuenta automáticamente cada insumo de la receta según la cantidad vendida — no el plato en sí. Si el ítem tiene modificadores aplicados (ver más abajo), el descuento se ajusta en consecuencia.</p>
-
-    <h2>Elaborados: producción por lotes</h2>
-    <p>Algunos ingredientes no se compran directamente, sino que se producen en el local en tandas — una salsa, una masa, un fondo de cocción. Para estos casos, un producto puede tener su propia receta (sub-receta) y producirse por lotes:</p>
-    <ol class="step-list">
-      <li>Cargá la receta del elaborado igual que cualquier otro producto (por ejemplo, "Salsa bolognesa").</li>
-      <li>Andá a <strong>Productos → [elaborado] → Receta → Producir</strong>.</li>
-      <li>Indicá cuántas <strong>tandas</strong> vas a producir. El sistema descuenta los insumos de la receta multiplicados por la cantidad producida.</li>
-      <li>El stock del elaborado se incrementa según el rendimiento configurado, quedando disponible como ingrediente de otras recetas (por ejemplo, un plato que usa "Salsa bolognesa" como ingrediente).</li>
-    </ol>
-
-    <div class="callout warn">
-      <p><strong>Costeo de combos:</strong> si un producto con receta se usa como ingrediente de otra receta (por ejemplo, un combo que incluye un elaborado), el costo del elaborado se sincroniza automáticamente al costo calculado por su propia receta — así el combo queda bien costeado en cascada.</p>
-    </div>
-
-    <h2>Mermas</h2>
-    <p>Para registrar pérdidas de insumos que no vienen de una venta (vencimiento, rotura, error de manipulación), usá el ajuste de stock:</p>
-    <ol class="step-list">
-      <li>Andá a <strong>Stock → [insumo] → Ajustar stock</strong>.</li>
-      <li>Ingresá la cantidad real luego de la merma y el motivo.</li>
-      <li>Guardá — el movimiento queda registrado en el historial de stock del insumo.</li>
-    </ol>
-
-    <h2>Conversión de compra</h2>
-    <p>Muchas veces comprás un insumo en una unidad (por ejemplo, una bolsa de 25kg de harina) pero lo usás en la receta en otra (gramos). Al cargar stock de un insumo, podés indicar un <strong>factor de conversión</strong> puntual al ingresar la compra, para que el sistema convierta automáticamente a la unidad usada en las recetas.</p>
-
-    <h2>Modificadores de pedido ("sin" / "doble")</h2>
-    <p>Cuando un ítem tiene receta, el mozo puede personalizarlo al agregarlo al pedido desde el salón o canales sin mesa:</p>
-    <ul>
-      <li><strong>Sin [ingrediente]</strong> — saca un ingrediente de la receta (ej: "sin cebolla"). No se descuenta ese insumo y queda anotado en la comanda.</li>
-      <li><strong>Doble [ingrediente]</strong> — duplica la cantidad de un ingrediente (ej: "doble queso"). Se descuenta el doble de ese insumo.</li>
-    </ul>
-    <p>Los modificadores elegidos se muestran tanto en el detalle del pedido como en la comanda impresa en cocina/barra, y ajustan el descuento de stock de ese ítem puntual sin modificar la receta base del producto.</p>
-
-    <h2>Reportes de food cost y consumo</h2>
-    <p>En <strong>Productos → Reportes de costos</strong> encontrás:</p>
-    <ul>
-      <li><strong>Food cost y margen</strong> por producto — costo de receta vs. precio de venta.</li>
-      <li><strong>Consumo real de insumos</strong> en un período, calculado a partir de lo efectivamente vendido (incluyendo el efecto de los modificadores).</li>
-    </ul>
-    <p>Usá estos reportes para detectar platos con margen bajo o insumos que se consumen más de lo esperado (posible indicio de mermas no registradas o porciones fuera de estándar).</p>
-
-    <h2>Limitación conocida</h2>
-    <div class="callout warn">
-      <p><strong>Combos de platos-al-momento:</strong> si un combo incluye directamente otro plato que se cocina al momento (no un elaborado pre-producido por lotes), el sistema no descuenta de forma recursiva los insumos de ese plato interno. Para evitarlo, convertí ese plato en un <em>elaborado</em> con producción por lotes si se usa seguido como parte de combos.</p>
-    </div>
-
-    <div class="docs-nav-footer">
-      <a href="/docs/canales.html">← Canales sin mesa</a>
-      <a href="/docs/ventas.html">Ventas →</a>
-    </div>
+<p class="docs-lead">En vez de descontar del stock el plato terminado, Restolibra puede descontar los insumos reales que lo componen — y calcular el costo y el margen de cada plato automáticamente.</p>
+<div class="callout">
+<p><strong>Plan requerido:</strong> el módulo de Recetas está disponible en planes Estándar y Premium.</p>
+</div>
+<h2>Insumos vs. productos vendibles</h2>
+<p>Cada producto tiene un campo <strong>Vendible</strong>:</p>
+<ul>
+<li><strong>Vendible</strong> — aparece en el menú del mozo y en el buscador de ventas/facturas. Es lo que el cliente pide y paga.</li>
+<li><strong>No vendible (insumo)</strong> — no aparece en el menú ni en ventas, pero sí en Stock y como ingrediente disponible para armar recetas. Por ejemplo: harina, carne picada, gaseosa en botellón.</li>
+</ul>
+<p>Cargá tus insumos como productos normales, desmarcando la opción <strong>Vendible</strong>.</p>
+<h2>Crear una receta</h2>
+<ol class="step-list">
+<li>Andá al detalle de un producto vendible (por ejemplo, "Milanesa con papas") y abrí la pestaña <strong>Receta</strong>.</li>
+<li>Agregá los insumos que componen el plato con su cantidad exacta (por ejemplo, 200g de carne, 150g de papa, 30ml de aceite).</li>
+<li>El sistema calcula automáticamente el <strong>costo total</strong> y el <strong>food cost %</strong> (costo / precio de venta) en tiempo real a medida que cargás ingredientes.</li>
+<li>Ajustá el <strong>rendimiento</strong> (rinde) si la receta produce más de una porción, y el <strong>% de rendimiento</strong> si hay pérdida de cocción (por ejemplo, la carne pierde peso al cocinarse).</li>
+<li>Guardá la receta.</li>
+</ol>
+<div class="callout success">
+<p><strong>Food cost en vivo:</strong> mientras cargás ingredientes, ves el costo y el % de food cost actualizarse al instante — así podés ajustar cantidades o precio de venta antes de guardar.</p>
+</div>
+<h2>Descuento de stock al vender</h2>
+<p>Cuando un plato con receta se vende (desde el salón, canales sin mesa o el POS), el sistema descuenta automáticamente cada insumo de la receta según la cantidad vendida — no el plato en sí. Si el ítem tiene modificadores aplicados (ver más abajo), el descuento se ajusta en consecuencia.</p>
+<h2>Elaborados: producción por lotes</h2>
+<p>Algunos ingredientes no se compran directamente, sino que se producen en el local en tandas — una salsa, una masa, un fondo de cocción. Para estos casos, un producto puede tener su propia receta (sub-receta) y producirse por lotes:</p>
+<ol class="step-list">
+<li>Cargá la receta del elaborado igual que cualquier otro producto (por ejemplo, "Salsa bolognesa").</li>
+<li>Andá a <strong>Productos → [elaborado] → Receta → Producir</strong>.</li>
+<li>Indicá cuántas <strong>tandas</strong> vas a producir. El sistema descuenta los insumos de la receta multiplicados por la cantidad producida.</li>
+<li>El stock del elaborado se incrementa según el rendimiento configurado, quedando disponible como ingrediente de otras recetas (por ejemplo, un plato que usa "Salsa bolognesa" como ingrediente).</li>
+</ol>
+<div class="callout warn">
+<p><strong>Costeo de combos:</strong> si un producto con receta se usa como ingrediente de otra receta (por ejemplo, un combo que incluye un elaborado), el costo del elaborado se sincroniza automáticamente al costo calculado por su propia receta — así el combo queda bien costeado en cascada.</p>
+</div>
+<h2>Mermas</h2>
+<p>Para registrar pérdidas de insumos que no vienen de una venta (vencimiento, rotura, error de manipulación), usá el ajuste de stock:</p>
+<ol class="step-list">
+<li>Andá a <strong>Stock → [insumo] → Ajustar stock</strong>.</li>
+<li>Ingresá la cantidad real luego de la merma y el motivo.</li>
+<li>Guardá — el movimiento queda registrado en el historial de stock del insumo.</li>
+</ol>
+<h2>Conversión de compra</h2>
+<p>Muchas veces comprás un insumo en una unidad (por ejemplo, una bolsa de 25kg de harina) pero lo usás en la receta en otra (gramos). Al cargar stock de un insumo, podés indicar un <strong>factor de conversión</strong> puntual al ingresar la compra, para que el sistema convierta automáticamente a la unidad usada en las recetas.</p>
+<h2>Modificadores de pedido ("sin" / "doble")</h2>
+<p>Cuando un ítem tiene receta, el mozo puede personalizarlo al agregarlo al pedido desde el salón o canales sin mesa:</p>
+<ul>
+<li><strong>Sin [ingrediente]</strong> — saca un ingrediente de la receta (ej: "sin cebolla"). No se descuenta ese insumo y queda anotado en la comanda.</li>
+<li><strong>Doble [ingrediente]</strong> — duplica la cantidad de un ingrediente (ej: "doble queso"). Se descuenta el doble de ese insumo.</li>
+</ul>
+<p>Los modificadores elegidos se muestran tanto en el detalle del pedido como en la comanda impresa en cocina/barra, y ajustan el descuento de stock de ese ítem puntual sin modificar la receta base del producto.</p>
+<h2>Reportes de food cost y consumo</h2>
+<p>En <strong>Productos → Reportes de costos</strong> encontrás:</p>
+<ul>
+<li><strong>Food cost y margen</strong> por producto — costo de receta vs. precio de venta.</li>
+<li><strong>Consumo real de insumos</strong> en un período, calculado a partir de lo efectivamente vendido (incluyendo el efecto de los modificadores).</li>
+</ul>
+<p>Usá estos reportes para detectar platos con margen bajo o insumos que se consumen más de lo esperado (posible indicio de mermas no registradas o porciones fuera de estándar).</p>
+<h2>Limitación conocida</h2>
+<div class="callout warn">
+<p><strong>Combos de platos-al-momento:</strong> si un combo incluye directamente otro plato que se cocina al momento (no un elaborado pre-producido por lotes), el sistema no descuenta de forma recursiva los insumos de ese plato interno. Para evitarlo, convertí ese plato en un <em>elaborado</em> con producción por lotes si se usa seguido como parte de combos.</p>
+</div>
+<div class="docs-nav-footer">
+<a href="/docs/canales.html">← Canales sin mesa</a>
+<a href="/docs/ventas.html">Ventas →</a>
+</div>
   </main>
-
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">
-        <div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
+<div class="footer-inner">
+<div>
+<div class="footer-brand">
+<div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
         Restolibra
       </div>
-      <div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
-    </div>
-    <div style="display:flex;gap:3rem;flex-wrap:wrap">
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
-          <a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
-          <a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
-          <a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://wa.me/5491127752983" target="_blank" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
-          <a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://contalibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Contalibra — ERP &amp; Facturación</a>
-          <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Compulibra — Soporte IT &amp; Hosting</a>
-          <a href="https://neuroflow.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">NeuroFlow — IA &amp; Automatización</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copy">
-    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#78716c;text-decoration:none">Compulibra</a> · Todos los derechos reservados
+<div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
+</div>
+<div style="display:flex;gap:3rem;flex-wrap:wrap">
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
+<a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
+<a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
+<a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://wa.me/5491127752983" style="color:#a8a29e;font-size:.9rem" target="_blank"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+<a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://contalibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Contalibra — ERP &amp; Facturación</a>
+<a href="https://compulibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Compulibra — Soporte IT &amp; Hosting</a>
+<a href="https://neuroflow.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">NeuroFlow — IA &amp; Automatización</a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-copy">
+    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" rel="noopener" style="color:#78716c;text-decoration:none" target="_blank">Compulibra</a> · Todos los derechos reservados
   </div>
 </footer>
-
 </body>
 </html>

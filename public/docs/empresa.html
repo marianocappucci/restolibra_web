@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datos del negocio — Documentación Restolibra</title>
+  <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -12,10 +13,7 @@
 <body>
 
 <nav class="navbar">
-  <a href="/" class="navbar-brand" style="text-decoration:none">
-    <div class="logo-icon">R</div>
-    Restolibra
-  </a>
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">R</div>Restolibra</a>
   <div class="navbar-links">
     <a href="/#funciones">Funciones</a>
     <a href="/#planes">Planes</a>
@@ -24,23 +22,19 @@
 </nav>
 
 <div class="docs-wrapper">
-
   <nav class="docs-sidebar">
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-
     <div class="docs-sidebar-section">Configuración</div>
     <a href="/docs/empresa.html" class="active">Datos del negocio</a>
     <a href="/docs/usuarios.html">Usuarios y permisos</a>
     <a href="/docs/configuracion.html">Configuración general</a>
-
     <div class="docs-sidebar-section">Salón y Comandas</div>
     <a href="/docs/salon.html">Salón y Mesas</a>
     <a href="/docs/comandas-kds.html">Comandas y KDS</a>
     <a href="/docs/canales.html">Canales sin mesa</a>
     <a href="/docs/recetas.html">Recetas y Food Cost</a>
-
     <div class="docs-sidebar-section">Módulos</div>
     <a href="/docs/ventas.html">Ventas</a>
     <a href="/docs/presupuestos.html">Presupuestos</a>
@@ -60,154 +54,143 @@
 
   <main class="docs-content">
     <h1>Datos del negocio</h1>
-    <p class="docs-lead">Configurá la información de tu restaurante, bar o local que aparecerá en facturas, comandas y tickets. Es lo primero que debés hacer al ingresar por primera vez.</p>
-
-    <h2>Acceder a la configuración</h2>
-    <p>Andá a <strong>Configuración</strong> en el menú lateral y seleccioná la pestaña <strong>Empresa</strong>.</p>
-
-    <h2>Campos disponibles</h2>
-
-    <table class="docs-table">
-      <thead>
-        <tr><th>Campo</th><th>Descripción</th><th>Requerido</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Razón social</strong></td>
-          <td>Nombre legal del negocio tal como figura en AFIP</td>
-          <td>Sí</td>
-        </tr>
-        <tr>
-          <td><strong>CUIT</strong></td>
-          <td>Número de CUIT sin guiones (solo números)</td>
-          <td>Sí</td>
-        </tr>
-        <tr>
-          <td><strong>Nombre comercial</strong></td>
-          <td>Nombre con el que se conoce el restaurante (puede ser diferente a la razón social)</td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td><strong>Dirección</strong></td>
-          <td>Domicilio fiscal completo</td>
-          <td>Sí</td>
-        </tr>
-        <tr>
-          <td><strong>Localidad / Provincia</strong></td>
-          <td>Ciudad y provincia donde operás</td>
-          <td>Sí</td>
-        </tr>
-        <tr>
-          <td><strong>Teléfono</strong></td>
-          <td>Teléfono de contacto, se muestra en documentos</td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td><strong>Email</strong></td>
-          <td>Email de contacto del negocio</td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td><strong>Condición ante IVA</strong></td>
-          <td>Responsable Inscripto, Monotributista, Exento, etc.</td>
-          <td>Sí</td>
-        </tr>
-        <tr>
-          <td><strong>Inicio de actividades</strong></td>
-          <td>Fecha de inicio según AFIP</td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td><strong>Logo</strong></td>
-          <td>Imagen PNG/JPG del logo, se usa en facturas, tickets y comandas</td>
-          <td>No</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Logo del negocio</h2>
-    <p>El logo aparece en el encabezado de las facturas y en los tickets térmicos. Para subir o cambiar el logo:</p>
-    <ol class="step-list">
-      <li>En la pestaña <strong>Empresa</strong>, buscá la sección "Logo".</li>
-      <li>Hacé clic en <strong>Seleccionar archivo</strong> y elegí una imagen PNG o JPG.</li>
-      <li>Recomendamos un logo cuadrado de al menos 200×200 píxeles con fondo blanco o transparente.</li>
-      <li>Guardá los cambios.</li>
-    </ol>
-
-    <div class="callout">
-      <p><strong>Tip:</strong> Si el logo tiene fondo transparente (PNG), se verá mejor en documentos con fondo blanco. El sistema redimensiona automáticamente la imagen para los documentos.</p>
-    </div>
-
-    <h2>Punto de venta</h2>
-    <p>El número de punto de venta (PV) se usa para emitir facturas electrónicas ante ARCA. Por defecto es el punto de venta 5. Si necesitás cambiarlo, hablá con soporte — requiere configuración adicional en AFIP.</p>
-
-    <div class="callout warn">
-      <p><strong>Importante:</strong> El CUIT y el punto de venta no se pueden cambiar arbitrariamente si ya emitiste facturas. Un cambio en estos datos puede generar inconsistencias contables. Siempre consultá con tu contador antes de modificarlos.</p>
-    </div>
-
-    <h2>¿Cuándo se usan estos datos?</h2>
-    <p>La información del negocio aparece automáticamente en:</p>
-    <ul>
-      <li>Encabezado de facturas electrónicas (A, B, C)</li>
-      <li>Tickets térmicos de venta y comandas de cocina/barra</li>
-      <li>Presupuestos y remitos</li>
-      <li>Reportes exportados en PDF</li>
-    </ul>
-
-    <div class="docs-nav-footer">
-      <a href="/docs/primeros-pasos.html">← Primeros pasos</a>
-      <a href="/docs/usuarios.html">Usuarios y permisos →</a>
-    </div>
+<p class="docs-lead">Configurá la información de tu restaurante, bar o local que aparecerá en facturas, comandas y tickets. Es lo primero que debés hacer al ingresar por primera vez.</p>
+<h2>Acceder a la configuración</h2>
+<p>Andá a <strong>Configuración</strong> en el menú lateral y seleccioná la pestaña <strong>Empresa</strong>.</p>
+<h2>Campos disponibles</h2>
+<table class="docs-table">
+<thead>
+<tr><th>Campo</th><th>Descripción</th><th>Requerido</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Razón social</strong></td>
+<td>Nombre legal del negocio tal como figura en AFIP</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>CUIT</strong></td>
+<td>Número de CUIT sin guiones (solo números)</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>Nombre comercial</strong></td>
+<td>Nombre con el que se conoce el restaurante (puede ser diferente a la razón social)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Dirección</strong></td>
+<td>Domicilio fiscal completo</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>Localidad / Provincia</strong></td>
+<td>Ciudad y provincia donde operás</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>Teléfono</strong></td>
+<td>Teléfono de contacto, se muestra en documentos</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td>Email de contacto del negocio</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Condición ante IVA</strong></td>
+<td>Responsable Inscripto, Monotributista, Exento, etc.</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>Inicio de actividades</strong></td>
+<td>Fecha de inicio según AFIP</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Logo</strong></td>
+<td>Imagen PNG/JPG del logo, se usa en facturas, tickets y comandas</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h2>Logo del negocio</h2>
+<p>El logo aparece en el encabezado de las facturas y en los tickets térmicos. Para subir o cambiar el logo:</p>
+<ol class="step-list">
+<li>En la pestaña <strong>Empresa</strong>, buscá la sección "Logo".</li>
+<li>Hacé clic en <strong>Seleccionar archivo</strong> y elegí una imagen PNG o JPG.</li>
+<li>Recomendamos un logo cuadrado de al menos 200×200 píxeles con fondo blanco o transparente.</li>
+<li>Guardá los cambios.</li>
+</ol>
+<div class="callout">
+<p><strong>Tip:</strong> Si el logo tiene fondo transparente (PNG), se verá mejor en documentos con fondo blanco. El sistema redimensiona automáticamente la imagen para los documentos.</p>
+</div>
+<h2>Punto de venta</h2>
+<p>El número de punto de venta (PV) se usa para emitir facturas electrónicas ante ARCA. Por defecto es el punto de venta 5. Si necesitás cambiarlo, hablá con soporte — requiere configuración adicional en AFIP.</p>
+<div class="callout warn">
+<p><strong>Importante:</strong> El CUIT y el punto de venta no se pueden cambiar arbitrariamente si ya emitiste facturas. Un cambio en estos datos puede generar inconsistencias contables. Siempre consultá con tu contador antes de modificarlos.</p>
+</div>
+<h2>¿Cuándo se usan estos datos?</h2>
+<p>La información del negocio aparece automáticamente en:</p>
+<ul>
+<li>Encabezado de facturas electrónicas (A, B, C)</li>
+<li>Tickets térmicos de venta y comandas de cocina/barra</li>
+<li>Presupuestos y remitos</li>
+<li>Reportes exportados en PDF</li>
+</ul>
+<div class="docs-nav-footer">
+<a href="/docs/primeros-pasos.html">← Primeros pasos</a>
+<a href="/docs/usuarios.html">Usuarios y permisos →</a>
+</div>
   </main>
-
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">
-        <div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
+<div class="footer-inner">
+<div>
+<div class="footer-brand">
+<div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
         Restolibra
       </div>
-      <div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
-    </div>
-    <div style="display:flex;gap:3rem;flex-wrap:wrap">
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
-          <a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
-          <a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
-          <a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://wa.me/5491127752983" target="_blank" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
-          <a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://contalibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Contalibra — ERP &amp; Facturación</a>
-          <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Compulibra — Soporte IT &amp; Hosting</a>
-          <a href="https://neuroflow.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">NeuroFlow — IA &amp; Automatización</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copy">
-    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#78716c;text-decoration:none">Compulibra</a> · Todos los derechos reservados
+<div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
+</div>
+<div style="display:flex;gap:3rem;flex-wrap:wrap">
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
+<a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
+<a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
+<a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://wa.me/5491127752983" style="color:#a8a29e;font-size:.9rem" target="_blank"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+<a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://contalibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Contalibra — ERP &amp; Facturación</a>
+<a href="https://compulibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Compulibra — Soporte IT &amp; Hosting</a>
+<a href="https://neuroflow.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">NeuroFlow — IA &amp; Automatización</a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-copy">
+    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" rel="noopener" style="color:#78716c;text-decoration:none" target="_blank">Compulibra</a> · Todos los derechos reservados
   </div>
 </footer>
-
 </body>
 </html>

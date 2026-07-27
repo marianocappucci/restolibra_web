@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tesorería — Documentación Restolibra</title>
+  <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -12,10 +13,7 @@
 <body>
 
 <nav class="navbar">
-  <a href="/" class="navbar-brand" style="text-decoration:none">
-    <div class="logo-icon">R</div>
-    Restolibra
-  </a>
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">R</div>Restolibra</a>
   <div class="navbar-links">
     <a href="/#funciones">Funciones</a>
     <a href="/#planes">Planes</a>
@@ -24,23 +22,19 @@
 </nav>
 
 <div class="docs-wrapper">
-
   <nav class="docs-sidebar">
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-
     <div class="docs-sidebar-section">Configuración</div>
     <a href="/docs/empresa.html">Datos del negocio</a>
     <a href="/docs/usuarios.html">Usuarios y permisos</a>
     <a href="/docs/configuracion.html">Configuración general</a>
-
     <div class="docs-sidebar-section">Salón y Comandas</div>
     <a href="/docs/salon.html">Salón y Mesas</a>
     <a href="/docs/comandas-kds.html">Comandas y KDS</a>
     <a href="/docs/canales.html">Canales sin mesa</a>
     <a href="/docs/recetas.html">Recetas y Food Cost</a>
-
     <div class="docs-sidebar-section">Módulos</div>
     <a href="/docs/ventas.html">Ventas</a>
     <a href="/docs/presupuestos.html">Presupuestos</a>
@@ -60,115 +54,104 @@
 
   <main class="docs-content">
     <h1>Tesorería</h1>
-    <p class="docs-lead">Administrá las cuentas de dinero del negocio: cuentas bancarias, caja chica y billeteras digitales. Visualizá el saldo de cada cuenta y el total consolidado en tiempo real.</p>
-
-    <h2>Para qué sirve Tesorería</h2>
-    <p>El módulo de Tesorería te permite centralizar todas las cuentas de dinero del negocio en un solo lugar. Podés:</p>
-    <ul>
-      <li>Crear y administrar cuentas bancarias, cajas chicas y billeteras digitales</li>
-      <li>Ver el saldo actualizado de cada cuenta y el total consolidado</li>
-      <li>Registrar ingresos y egresos manuales en cualquier cuenta</li>
-      <li>Transferir saldo entre cuentas propias</li>
-    </ul>
-
-    <h2>Tipos de cuenta</h2>
-    <table class="docs-table">
-      <thead>
-        <tr><th>Tipo</th><th>Descripción</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Banco</strong></td><td>Cuenta corriente o caja de ahorro bancaria</td></tr>
-        <tr><td><strong>Efectivo</strong></td><td>Caja chica física</td></tr>
-        <tr><td><strong>Billetera digital</strong></td><td>MercadoPago, Ualá, Brubank u otras</td></tr>
-        <tr><td><strong>Otro</strong></td><td>Cualquier otro tipo de cuenta</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Crear una cuenta</h2>
-    <ol class="step-list">
-      <li>Andá a <strong>Tesorería → Nueva cuenta</strong>.</li>
-      <li>Ingresá el <strong>nombre</strong> de la cuenta (por ejemplo: "Caja mostrador", "Cuenta HSBC").</li>
-      <li>Seleccioná el <strong>tipo</strong> de cuenta.</li>
-      <li>Completá los datos opcionales: banco, número de cuenta.</li>
-      <li>Ingresá el <strong>saldo inicial</strong> si la cuenta ya tiene fondos al momento de crearla.</li>
-      <li>Guardá la cuenta.</li>
-    </ol>
-
-    <h2>Ver movimientos</h2>
-    <p>Desde la ficha de cualquier cuenta podés ver el listado completo de movimientos: ingresos y egresos con fecha, concepto y monto. Los movimientos se generan automáticamente cuando se registran ventas o egresos dentro del sistema, o de forma manual.</p>
-
-    <h2>Registrar un movimiento</h2>
-    <p>Desde la ficha de una cuenta, usá el botón <strong>Nuevo movimiento</strong> para registrar una operación manual:</p>
-    <ul>
-      <li>Elegí el tipo: <strong>ingreso</strong> o <strong>egreso</strong>.</li>
-      <li>Ingresá el monto, la fecha y un concepto descriptivo.</li>
-    </ul>
-    <p>Esto es útil para registrar gastos de caja chica, cobros en efectivo o depósitos que no pasan por otro módulo del sistema.</p>
-
-    <h2>Transferencias entre cuentas</h2>
-    <p>El módulo permite mover saldo de una cuenta propia a otra, por ejemplo de caja chica a una cuenta bancaria. Al confirmar la transferencia, el sistema descuenta el importe de la cuenta origen y lo acredita en la cuenta destino de forma automática. Ambas cuentas reflejan el movimiento en su historial.</p>
-
-    <h2>Resumen general</h2>
-    <p>El listado principal de Tesorería muestra todas las cuentas activas con su saldo actual y el <strong>total consolidado</strong> al pie. Esto te da una foto instantánea de la liquidez total del negocio sin tener que consultar cada cuenta por separado.</p>
-
-    <div class="callout warn">
-      <p><strong>Atención:</strong> la Tesorería no se sincroniza automáticamente con cuentas bancarias externas. Los movimientos se registran manualmente o provienen de acciones dentro del sistema (ventas, egresos, cierre de caja).</p>
-    </div>
-
-    <div class="docs-nav-footer">
-      <a href="/docs/egresos-proveedores.html">← Egresos y Proveedores</a>
-      <a href="/docs/depositos.html">Depósitos →</a>
-    </div>
+<p class="docs-lead">Administrá las cuentas de dinero del negocio: cuentas bancarias, caja chica y billeteras digitales. Visualizá el saldo de cada cuenta y el total consolidado en tiempo real.</p>
+<h2>Para qué sirve Tesorería</h2>
+<p>El módulo de Tesorería te permite centralizar todas las cuentas de dinero del negocio en un solo lugar. Podés:</p>
+<ul>
+<li>Crear y administrar cuentas bancarias, cajas chicas y billeteras digitales</li>
+<li>Ver el saldo actualizado de cada cuenta y el total consolidado</li>
+<li>Registrar ingresos y egresos manuales en cualquier cuenta</li>
+<li>Transferir saldo entre cuentas propias</li>
+</ul>
+<h2>Tipos de cuenta</h2>
+<table class="docs-table">
+<thead>
+<tr><th>Tipo</th><th>Descripción</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Banco</strong></td><td>Cuenta corriente o caja de ahorro bancaria</td></tr>
+<tr><td><strong>Efectivo</strong></td><td>Caja chica física</td></tr>
+<tr><td><strong>Billetera digital</strong></td><td>MercadoPago, Ualá, Brubank u otras</td></tr>
+<tr><td><strong>Otro</strong></td><td>Cualquier otro tipo de cuenta</td></tr>
+</tbody>
+</table>
+<h2>Crear una cuenta</h2>
+<ol class="step-list">
+<li>Andá a <strong>Tesorería → Nueva cuenta</strong>.</li>
+<li>Ingresá el <strong>nombre</strong> de la cuenta (por ejemplo: "Caja mostrador", "Cuenta HSBC").</li>
+<li>Seleccioná el <strong>tipo</strong> de cuenta.</li>
+<li>Completá los datos opcionales: banco, número de cuenta.</li>
+<li>Ingresá el <strong>saldo inicial</strong> si la cuenta ya tiene fondos al momento de crearla.</li>
+<li>Guardá la cuenta.</li>
+</ol>
+<h2>Ver movimientos</h2>
+<p>Desde la ficha de cualquier cuenta podés ver el listado completo de movimientos: ingresos y egresos con fecha, concepto y monto. Los movimientos se generan automáticamente cuando se registran ventas o egresos dentro del sistema, o de forma manual.</p>
+<h2>Registrar un movimiento</h2>
+<p>Desde la ficha de una cuenta, usá el botón <strong>Nuevo movimiento</strong> para registrar una operación manual:</p>
+<ul>
+<li>Elegí el tipo: <strong>ingreso</strong> o <strong>egreso</strong>.</li>
+<li>Ingresá el monto, la fecha y un concepto descriptivo.</li>
+</ul>
+<p>Esto es útil para registrar gastos de caja chica, cobros en efectivo o depósitos que no pasan por otro módulo del sistema.</p>
+<h2>Transferencias entre cuentas</h2>
+<p>El módulo permite mover saldo de una cuenta propia a otra, por ejemplo de caja chica a una cuenta bancaria. Al confirmar la transferencia, el sistema descuenta el importe de la cuenta origen y lo acredita en la cuenta destino de forma automática. Ambas cuentas reflejan el movimiento en su historial.</p>
+<h2>Resumen general</h2>
+<p>El listado principal de Tesorería muestra todas las cuentas activas con su saldo actual y el <strong>total consolidado</strong> al pie. Esto te da una foto instantánea de la liquidez total del negocio sin tener que consultar cada cuenta por separado.</p>
+<div class="callout warn">
+<p><strong>Atención:</strong> la Tesorería no se sincroniza automáticamente con cuentas bancarias externas. Los movimientos se registran manualmente o provienen de acciones dentro del sistema (ventas, egresos, cierre de caja).</p>
+</div>
+<div class="docs-nav-footer">
+<a href="/docs/egresos-proveedores.html">← Egresos y Proveedores</a>
+<a href="/docs/depositos.html">Depósitos →</a>
+</div>
   </main>
-
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">
-        <div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
+<div class="footer-inner">
+<div>
+<div class="footer-brand">
+<div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
         Restolibra
       </div>
-      <div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
-    </div>
-    <div style="display:flex;gap:3rem;flex-wrap:wrap">
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
-          <a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
-          <a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
-          <a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://wa.me/5491127752983" target="_blank" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
-          <a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://contalibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Contalibra — ERP &amp; Facturación</a>
-          <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Compulibra — Soporte IT &amp; Hosting</a>
-          <a href="https://neuroflow.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">NeuroFlow — IA &amp; Automatización</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copy">
-    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#78716c;text-decoration:none">Compulibra</a> · Todos los derechos reservados
+<div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
+</div>
+<div style="display:flex;gap:3rem;flex-wrap:wrap">
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
+<a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
+<a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
+<a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://wa.me/5491127752983" style="color:#a8a29e;font-size:.9rem" target="_blank"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+<a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://contalibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Contalibra — ERP &amp; Facturación</a>
+<a href="https://compulibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Compulibra — Soporte IT &amp; Hosting</a>
+<a href="https://neuroflow.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">NeuroFlow — IA &amp; Automatización</a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-copy">
+    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" rel="noopener" style="color:#78716c;text-decoration:none" target="_blank">Compulibra</a> · Todos los derechos reservados
   </div>
 </footer>
-
 </body>
 </html>

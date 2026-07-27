@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Integraciones — Documentación Restolibra</title>
+  <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -12,10 +13,7 @@
 <body>
 
 <nav class="navbar">
-  <a href="/" class="navbar-brand" style="text-decoration:none">
-    <div class="logo-icon">R</div>
-    Restolibra
-  </a>
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">R</div>Restolibra</a>
   <div class="navbar-links">
     <a href="/#funciones">Funciones</a>
     <a href="/#planes">Planes</a>
@@ -24,23 +22,19 @@
 </nav>
 
 <div class="docs-wrapper">
-
   <nav class="docs-sidebar">
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-
     <div class="docs-sidebar-section">Configuración</div>
     <a href="/docs/empresa.html">Datos del negocio</a>
     <a href="/docs/usuarios.html">Usuarios y permisos</a>
     <a href="/docs/configuracion.html">Configuración general</a>
-
     <div class="docs-sidebar-section">Salón y Comandas</div>
     <a href="/docs/salon.html">Salón y Mesas</a>
     <a href="/docs/comandas-kds.html">Comandas y KDS</a>
     <a href="/docs/canales.html">Canales sin mesa</a>
     <a href="/docs/recetas.html">Recetas y Food Cost</a>
-
     <div class="docs-sidebar-section">Módulos</div>
     <a href="/docs/ventas.html">Ventas</a>
     <a href="/docs/presupuestos.html">Presupuestos</a>
@@ -60,258 +54,227 @@
 
   <main class="docs-content">
     <h1>Integraciones</h1>
-    <p class="docs-lead">Conectá Restolibra con MercadoPago para cobrar con QR, con ARCA/AFIP para facturación electrónica, y con tu servidor de correo para enviar comprobantes por email.</p>
-
-    <p>Todas las integraciones se configuran desde <strong>Configuración → Integraciones</strong>. Cada sección tiene un botón <strong>Probar conexión</strong> que verifica que los datos sean correctos.</p>
-
-    <!-- ── MERCADOPAGO ── -->
-    <h2>MercadoPago</h2>
-    <p>La integración con MercadoPago tiene dos usos principales: cobrar con QR dinámico en mesas, barra, takeaway o delivery, y recibir pagos de links de cobro que aparecen en la <strong>Bandeja de pagos</strong> para facturarlos desde ahí.</p>
-
-    <h3>Credenciales necesarias</h3>
-    <table class="docs-table">
-      <thead><tr><th>Campo</th><th>Dónde obtenerlo</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>Access Token</strong></td>
-          <td>Panel de desarrolladores MP → tu app → <em>Credenciales de producción</em>. Empieza con <code>APP_USR-</code>.</td>
-        </tr>
-        <tr>
-          <td><strong>User ID</strong></td>
-          <td>Tu perfil de MercadoPago → abajo de tu nombre aparece el ID numérico. También visible en el panel de desarrolladores.</td>
-        </tr>
-        <tr>
-          <td><strong>POS ID (External ID)</strong></td>
-          <td>En <em>Tu negocio → Puntos de venta</em>, creá un PDV y definí su <em>External ID</em> (ej: <code>MOSTRADOR</code>). Solo necesario para cobros QR presenciales.</td>
-        </tr>
-        <tr>
-          <td><strong>Webhook Secret</strong></td>
-          <td>En la app de desarrolladores → <em>Webhooks</em>, registrá la URL y copiá la firma secreta que MP genera. Recomendado para mayor seguridad.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Cómo obtener el Access Token paso a paso</h3>
-    <ol class="step-list">
-      <li>Ingresá a <strong>mercadopago.com.ar/developers/panel/app</strong>.</li>
-      <li>Creá una nueva aplicación (o seleccioná una existente).</li>
-      <li>Andá a la pestaña <strong>Credenciales de producción</strong>.</li>
-      <li>Copiá el <strong>Access token</strong> que empieza con <code>APP_USR-</code>.</li>
-    </ol>
-
-    <h3>Cómo obtener el User ID</h3>
-    <ol class="step-list">
-      <li>Iniciá sesión en <strong>mercadopago.com.ar</strong>.</li>
-      <li>Hacé clic en tu avatar (arriba a la derecha) → <strong>Tu perfil</strong>.</li>
-      <li>El User ID es el número que aparece debajo de tu nombre.</li>
-    </ol>
-
-    <h3>Cómo crear el POS ID (para cobros presenciales)</h3>
-    <ol class="step-list">
-      <li>En el panel de MercadoPago, andá a <strong>Tu negocio → Puntos de venta</strong>.</li>
-      <li>Creá una sucursal si no tenés una.</li>
-      <li>Dentro de la sucursal, creá un <strong>Punto de venta</strong> de tipo <em>PDV</em>.</li>
-      <li>En el campo <strong>External ID</strong> escribí un código propio (ej: <code>MOSTRADOR</code>). Ese es el valor que va en Restolibra.</li>
-    </ol>
-
-    <h3>Configurar el Webhook</h3>
-    <p>El webhook permite que MercadoPago avise automáticamente a Restolibra cuando entra un pago. La URL se genera automáticamente en <strong>Configuración → Integraciones → MercadoPago</strong> — solo tenés que copiarla con el botón.</p>
-    <ol class="step-list">
-      <li>En el panel de desarrolladores, entrá a tu aplicación y luego a <strong>Webhooks</strong>.</li>
-      <li>Copiá la URL que muestra Restolibra en Configuración y pegala en el campo URL de MP.</li>
-      <li>Seleccioná el evento <strong>Pagos (payment)</strong>.</li>
-      <li>Copiá la <strong>firma secreta</strong> que MercadoPago genera y pegala en el campo <em>Webhook Secret</em> en Restolibra.</li>
-    </ol>
-
-    <div class="callout">
-      <p><strong>Tip:</strong> el Webhook Secret es opcional pero muy recomendado. Cuando está configurado, el sistema verifica la firma criptográfica de cada notificación y rechaza las falsas.</p>
-    </div>
-
-    <div class="callout warn">
-      <p><strong>Importante:</strong> usá siempre las credenciales de <strong>producción</strong>, no las de prueba, para procesar cobros reales.</p>
-    </div>
-
-    <h3>Probar la conexión</h3>
-    <p>Una vez guardadas las credenciales, hacé clic en <strong>Probar conexión</strong>. El sistema consulta la API de MercadoPago y muestra tu nickname, User ID, email y país de la cuenta. Si ves un error, verificá que el Access Token sea el de producción y que esté completo.</p>
-
-    <!-- ── BANDEJA DE PAGOS ── -->
-    <h2 id="bandeja">Bandeja de pagos MercadoPago</h2>
-    <p>Todos los pagos que entran a tu cuenta de MercadoPago (por links de cobro o transferencias) se muestran en <strong>Integraciones → Pagos MercadoPago</strong>. Desde ahí podés generar facturas, dar de alta clientes y ver el historial.</p>
-
-    <div class="callout">
-      <p>El número de pagos pendientes aparece como un badge rojo en el menú lateral para que no se te pase ninguno.</p>
-    </div>
-
-    <h3>Pagos vía webhook</h3>
-    <p>Cuando alguien te paga por un link de cobro u otro método digital de MP, el pago aparece automáticamente en la sección <strong>Pagos pendientes de factura</strong>. Para cada pago podés:</p>
-    <ul>
-      <li><strong>Generar factura</strong> — abre un diálogo donde podés editar el concepto antes de emitir. Si hay ARCA configurado, se obtiene el CAE automáticamente. Si hay email configurado, la factura se envía al cliente.</li>
-      <li><strong>Ignorar</strong> — marca el pago como ignorado y lo mueve al historial.</li>
-      <li><strong>Dar de alta el cliente</strong> — si el pagador no está registrado en Clientes, podés darlo de alta con sus datos pre-llenados desde el pago.</li>
-    </ul>
-
-    <h3>Transferencias bancarias y de billeteras</h3>
-    <p>Las transferencias que entran desde bancos (CBU) o billeteras externas (CVU) no llegan por webhook — hay que traerlas manualmente con el botón <strong>Sincronizar</strong>.</p>
-    <ol class="step-list">
-      <li>En la sección <strong>Transferencias recibidas</strong>, elegí el rango de días (últimos 7, 15, 30 o 60 días).</li>
-      <li>Hacé clic en <strong>Sincronizar</strong>. El sistema consulta tu cuenta MP y trae las transferencias nuevas.</li>
-      <li>Para cada transferencia podés ver el nombre del emisor, banco de origen y CBU.</li>
-      <li>Como el sistema bancario no provee el email del emisor, podés cargarlo manualmente con el botón <em>Cargar email</em> y así poder enviar la factura.</li>
-      <li>Una vez cargado el email, podés dar de alta el emisor como cliente o directamente generar la factura.</li>
-    </ol>
-
-    <div class="callout">
-      <p><strong>Tip:</strong> si la transferencia es de alguien que ya tenés registrado como cliente, no hace falta cargar el email — podés generar la factura igual (sin envío por email).</p>
-    </div>
-
-    <h3>Generar una factura desde la bandeja</h3>
-    <ol class="step-list">
-      <li>Hacé clic en el botón <strong>Factura</strong> del pago o transferencia pendiente.</li>
-      <li>En el diálogo que se abre, podés modificar el <strong>Concepto</strong> de la factura.</li>
-      <li>Confirmá con <strong>Generar factura</strong>.</li>
-      <li>El sistema crea la factura, obtiene el CAE de ARCA (si está configurado), genera el PDF y lo envía por email al cliente.</li>
-      <li>El pago pasa al historial con estado <em>Facturado</em> y un link a la factura.</li>
-    </ol>
-
-    <!-- ── ARCA ── -->
-    <h2>ARCA / Facturación electrónica</h2>
-    <p>Para emitir facturas electrónicas necesitás un certificado digital emitido por AFIP. El proceso implica generar una clave privada, obtener el certificado desde el portal ARCA y subirlo al sistema.</p>
-
-    <h3>Paso 1 — Generar la clave privada y el CSR</h3>
-    <div class="callout">
-      <p><strong>Herramienta:</strong> necesitás OpenSSL instalado. En Linux/Mac ya viene incluido. En Windows podés usar Git Bash o WSL.</p>
-    </div>
-    <ol class="step-list">
-      <li>Abrí una terminal y ejecutá:<br>
-        <code>openssl genrsa -out clave_privada.key 2048</code>
-      </li>
-      <li>Luego generá el CSR (pedido de certificado):<br>
-        <code>openssl req -new -key clave_privada.key -subj "/C=AR/O=Mi Restaurante/CN=CUIT 20123456789" -out mi_restaurante.csr</code><br>
+<p class="docs-lead">Conectá Restolibra con MercadoPago para cobrar con QR, con ARCA/AFIP para facturación electrónica, y con tu servidor de correo para enviar comprobantes por email.</p>
+<p>Todas las integraciones se configuran desde <strong>Configuración → Integraciones</strong>. Cada sección tiene un botón <strong>Probar conexión</strong> que verifica que los datos sean correctos.</p>
+<!-- ── MERCADOPAGO ── -->
+<h2>MercadoPago</h2>
+<p>La integración con MercadoPago tiene dos usos principales: cobrar con QR dinámico en mesas, barra, takeaway o delivery, y recibir pagos de links de cobro que aparecen en la <strong>Bandeja de pagos</strong> para facturarlos desde ahí.</p>
+<h3>Credenciales necesarias</h3>
+<table class="docs-table">
+<thead><tr><th>Campo</th><th>Dónde obtenerlo</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Access Token</strong></td>
+<td>Panel de desarrolladores MP → tu app → <em>Credenciales de producción</em>. Empieza con <code>APP_USR-</code>.</td>
+</tr>
+<tr>
+<td><strong>User ID</strong></td>
+<td>Tu perfil de MercadoPago → abajo de tu nombre aparece el ID numérico. También visible en el panel de desarrolladores.</td>
+</tr>
+<tr>
+<td><strong>POS ID (External ID)</strong></td>
+<td>En <em>Tu negocio → Puntos de venta</em>, creá un PDV y definí su <em>External ID</em> (ej: <code>MOSTRADOR</code>). Solo necesario para cobros QR presenciales.</td>
+</tr>
+<tr>
+<td><strong>Webhook Secret</strong></td>
+<td>En la app de desarrolladores → <em>Webhooks</em>, registrá la URL y copiá la firma secreta que MP genera. Recomendado para mayor seguridad.</td>
+</tr>
+</tbody>
+</table>
+<h3>Cómo obtener el Access Token paso a paso</h3>
+<ol class="step-list">
+<li>Ingresá a <strong>mercadopago.com.ar/developers/panel/app</strong>.</li>
+<li>Creá una nueva aplicación (o seleccioná una existente).</li>
+<li>Andá a la pestaña <strong>Credenciales de producción</strong>.</li>
+<li>Copiá el <strong>Access token</strong> que empieza con <code>APP_USR-</code>.</li>
+</ol>
+<h3>Cómo obtener el User ID</h3>
+<ol class="step-list">
+<li>Iniciá sesión en <strong>mercadopago.com.ar</strong>.</li>
+<li>Hacé clic en tu avatar (arriba a la derecha) → <strong>Tu perfil</strong>.</li>
+<li>El User ID es el número que aparece debajo de tu nombre.</li>
+</ol>
+<h3>Cómo crear el POS ID (para cobros presenciales)</h3>
+<ol class="step-list">
+<li>En el panel de MercadoPago, andá a <strong>Tu negocio → Puntos de venta</strong>.</li>
+<li>Creá una sucursal si no tenés una.</li>
+<li>Dentro de la sucursal, creá un <strong>Punto de venta</strong> de tipo <em>PDV</em>.</li>
+<li>En el campo <strong>External ID</strong> escribí un código propio (ej: <code>MOSTRADOR</code>). Ese es el valor que va en Restolibra.</li>
+</ol>
+<h3>Configurar el Webhook</h3>
+<p>El webhook permite que MercadoPago avise automáticamente a Restolibra cuando entra un pago. La URL se genera automáticamente en <strong>Configuración → Integraciones → MercadoPago</strong> — solo tenés que copiarla con el botón.</p>
+<ol class="step-list">
+<li>En el panel de desarrolladores, entrá a tu aplicación y luego a <strong>Webhooks</strong>.</li>
+<li>Copiá la URL que muestra Restolibra en Configuración y pegala en el campo URL de MP.</li>
+<li>Seleccioná el evento <strong>Pagos (payment)</strong>.</li>
+<li>Copiá la <strong>firma secreta</strong> que MercadoPago genera y pegala en el campo <em>Webhook Secret</em> en Restolibra.</li>
+</ol>
+<div class="callout">
+<p><strong>Tip:</strong> el Webhook Secret es opcional pero muy recomendado. Cuando está configurado, el sistema verifica la firma criptográfica de cada notificación y rechaza las falsas.</p>
+</div>
+<div class="callout warn">
+<p><strong>Importante:</strong> usá siempre las credenciales de <strong>producción</strong>, no las de prueba, para procesar cobros reales.</p>
+</div>
+<h3>Probar la conexión</h3>
+<p>Una vez guardadas las credenciales, hacé clic en <strong>Probar conexión</strong>. El sistema consulta la API de MercadoPago y muestra tu nickname, User ID, email y país de la cuenta. Si ves un error, verificá que el Access Token sea el de producción y que esté completo.</p>
+<!-- ── BANDEJA DE PAGOS ── -->
+<h2 id="bandeja">Bandeja de pagos MercadoPago</h2>
+<p>Todos los pagos que entran a tu cuenta de MercadoPago (por links de cobro o transferencias) se muestran en <strong>Integraciones → Pagos MercadoPago</strong>. Desde ahí podés generar facturas, dar de alta clientes y ver el historial.</p>
+<div class="callout">
+<p>El número de pagos pendientes aparece como un badge rojo en el menú lateral para que no se te pase ninguno.</p>
+</div>
+<h3>Pagos vía webhook</h3>
+<p>Cuando alguien te paga por un link de cobro u otro método digital de MP, el pago aparece automáticamente en la sección <strong>Pagos pendientes de factura</strong>. Para cada pago podés:</p>
+<ul>
+<li><strong>Generar factura</strong> — abre un diálogo donde podés editar el concepto antes de emitir. Si hay ARCA configurado, se obtiene el CAE automáticamente. Si hay email configurado, la factura se envía al cliente.</li>
+<li><strong>Ignorar</strong> — marca el pago como ignorado y lo mueve al historial.</li>
+<li><strong>Dar de alta el cliente</strong> — si el pagador no está registrado en Clientes, podés darlo de alta con sus datos pre-llenados desde el pago.</li>
+</ul>
+<h3>Transferencias bancarias y de billeteras</h3>
+<p>Las transferencias que entran desde bancos (CBU) o billeteras externas (CVU) no llegan por webhook — hay que traerlas manualmente con el botón <strong>Sincronizar</strong>.</p>
+<ol class="step-list">
+<li>En la sección <strong>Transferencias recibidas</strong>, elegí el rango de días (últimos 7, 15, 30 o 60 días).</li>
+<li>Hacé clic en <strong>Sincronizar</strong>. El sistema consulta tu cuenta MP y trae las transferencias nuevas.</li>
+<li>Para cada transferencia podés ver el nombre del emisor, banco de origen y CBU.</li>
+<li>Como el sistema bancario no provee el email del emisor, podés cargarlo manualmente con el botón <em>Cargar email</em> y así poder enviar la factura.</li>
+<li>Una vez cargado el email, podés dar de alta el emisor como cliente o directamente generar la factura.</li>
+</ol>
+<div class="callout">
+<p><strong>Tip:</strong> si la transferencia es de alguien que ya tenés registrado como cliente, no hace falta cargar el email — podés generar la factura igual (sin envío por email).</p>
+</div>
+<h3>Generar una factura desde la bandeja</h3>
+<ol class="step-list">
+<li>Hacé clic en el botón <strong>Factura</strong> del pago o transferencia pendiente.</li>
+<li>En el diálogo que se abre, podés modificar el <strong>Concepto</strong> de la factura.</li>
+<li>Confirmá con <strong>Generar factura</strong>.</li>
+<li>El sistema crea la factura, obtiene el CAE de ARCA (si está configurado), genera el PDF y lo envía por email al cliente.</li>
+<li>El pago pasa al historial con estado <em>Facturado</em> y un link a la factura.</li>
+</ol>
+<!-- ── ARCA ── -->
+<h2>ARCA / Facturación electrónica</h2>
+<p>Para emitir facturas electrónicas necesitás un certificado digital emitido por AFIP. El proceso implica generar una clave privada, obtener el certificado desde el portal ARCA y subirlo al sistema.</p>
+<h3>Paso 1 — Generar la clave privada y el CSR</h3>
+<div class="callout">
+<p><strong>Herramienta:</strong> necesitás OpenSSL instalado. En Linux/Mac ya viene incluido. En Windows podés usar Git Bash o WSL.</p>
+</div>
+<ol class="step-list">
+<li>Abrí una terminal y ejecutá:<br/>
+<code>openssl genrsa -out clave_privada.key 2048</code>
+</li>
+<li>Luego generá el CSR (pedido de certificado):<br/>
+<code>openssl req -new -key clave_privada.key -subj "/C=AR/O=Mi Restaurante/CN=CUIT 20123456789" -out mi_restaurante.csr</code><br/>
         Reemplazá <em>CUIT 20123456789</em> con tu CUIT sin guiones.
       </li>
-      <li>Guardá bien el archivo <code>clave_privada.key</code> — es uno de los dos archivos que subís a Restolibra.</li>
-    </ol>
-
-    <h3>Paso 2 — Obtener el certificado desde ARCA</h3>
-    <ol class="step-list">
-      <li>Ingresá con CUIT y Clave Fiscal (nivel 3 o superior) a <strong>auth.afip.gob.ar</strong>.</li>
-      <li>Buscá el servicio <strong>Administración de Certificados Digitales</strong>.</li>
-      <li>Hacé clic en <strong>Nueva solicitud de certificado</strong>.</li>
-      <li>Pegá el contenido del archivo <code>mi_restaurante.csr</code> generado antes.</li>
-      <li>Descargá el certificado resultante (<code>.crt</code> o <code>.pem</code>).</li>
-    </ol>
-
-    <h3>Paso 3 — Configurar el punto de venta</h3>
-    <ol class="step-list">
-      <li>En el portal ARCA, buscá el servicio <strong>ABM de Puntos de Venta</strong>.</li>
-      <li>Creá un punto de venta de tipo <strong>Facturación electrónica — Web Services</strong>.</li>
-      <li>El número asignado es el que ingresás en el campo <em>Punto de venta</em> en Restolibra.</li>
-    </ol>
-
-    <h3>Paso 4 — Subir los archivos a Restolibra</h3>
-    <ol class="step-list">
-      <li>Andá a <strong>Configuración → Integraciones → ARCA</strong>.</li>
-      <li>Completá el CUIT, punto de venta y seleccioná el ambiente.</li>
-      <li>Subí el archivo <code>clave_privada.key</code> en el campo <em>Clave privada</em>.</li>
-      <li>Subí el archivo <code>certificado.crt</code> en el campo <em>Certificado</em>.</li>
-      <li>Guardá y usá el botón <strong>Probar conexión</strong> para verificar.</li>
-    </ol>
-
-    <div class="callout">
-      <p><strong>Tip:</strong> usá el ambiente <strong>Homologación</strong> para hacer pruebas sin emitir comprobantes reales. Cambiá a <strong>Producción</strong> cuando todo funcione correctamente.</p>
-    </div>
-
-    <div class="callout warn">
-      <p><strong>Seguridad:</strong> la clave privada no se comparte con nadie ni se sube a servicios externos. Solo la subís una vez a este servidor, que es de uso exclusivo tuyo.</p>
-    </div>
-
-    <!-- ── EMAIL ── -->
-    <h2>Email / SMTP</h2>
-    <p>Configurá el servidor de correo para enviar facturas y presupuestos por email desde el sistema, con el PDF adjunto automáticamente.</p>
-
-    <h3>Configuración para Gmail</h3>
-    <div class="callout warn">
-      <p><strong>Importante:</strong> Gmail no permite usar tu contraseña normal para enviar email desde apps externas. Necesitás generar una <strong>contraseña de aplicación</strong> de 16 caracteres.</p>
-    </div>
-
-    <ol class="step-list">
-      <li>Activá la <strong>Verificación en dos pasos</strong> en tu cuenta de Google (es un requisito de Google para usar contraseñas de aplicación).</li>
-      <li>Ingresá a <strong>myaccount.google.com/apppasswords</strong>.</li>
-      <li>En el campo <em>Nombre de la app</em> escribí <strong>Restolibra</strong> y hacé clic en <em>Crear</em>.</li>
-      <li>Google te mostrará una contraseña de 16 caracteres — copiala en ese momento (no se vuelve a mostrar).</li>
-      <li>En Restolibra, andá a <strong>Configuración → Integraciones → Email</strong> y completá:<br>
+<li>Guardá bien el archivo <code>clave_privada.key</code> — es uno de los dos archivos que subís a Restolibra.</li>
+</ol>
+<h3>Paso 2 — Obtener el certificado desde ARCA</h3>
+<ol class="step-list">
+<li>Ingresá con CUIT y Clave Fiscal (nivel 3 o superior) a <strong>auth.afip.gob.ar</strong>.</li>
+<li>Buscá el servicio <strong>Administración de Certificados Digitales</strong>.</li>
+<li>Hacé clic en <strong>Nueva solicitud de certificado</strong>.</li>
+<li>Pegá el contenido del archivo <code>mi_restaurante.csr</code> generado antes.</li>
+<li>Descargá el certificado resultante (<code>.crt</code> o <code>.pem</code>).</li>
+</ol>
+<h3>Paso 3 — Configurar el punto de venta</h3>
+<ol class="step-list">
+<li>En el portal ARCA, buscá el servicio <strong>ABM de Puntos de Venta</strong>.</li>
+<li>Creá un punto de venta de tipo <strong>Facturación electrónica — Web Services</strong>.</li>
+<li>El número asignado es el que ingresás en el campo <em>Punto de venta</em> en Restolibra.</li>
+</ol>
+<h3>Paso 4 — Subir los archivos a Restolibra</h3>
+<ol class="step-list">
+<li>Andá a <strong>Configuración → Integraciones → ARCA</strong>.</li>
+<li>Completá el CUIT, punto de venta y seleccioná el ambiente.</li>
+<li>Subí el archivo <code>clave_privada.key</code> en el campo <em>Clave privada</em>.</li>
+<li>Subí el archivo <code>certificado.crt</code> en el campo <em>Certificado</em>.</li>
+<li>Guardá y usá el botón <strong>Probar conexión</strong> para verificar.</li>
+</ol>
+<div class="callout">
+<p><strong>Tip:</strong> usá el ambiente <strong>Homologación</strong> para hacer pruebas sin emitir comprobantes reales. Cambiá a <strong>Producción</strong> cuando todo funcione correctamente.</p>
+</div>
+<div class="callout warn">
+<p><strong>Seguridad:</strong> la clave privada no se comparte con nadie ni se sube a servicios externos. Solo la subís una vez a este servidor, que es de uso exclusivo tuyo.</p>
+</div>
+<!-- ── EMAIL ── -->
+<h2>Email / SMTP</h2>
+<p>Configurá el servidor de correo para enviar facturas y presupuestos por email desde el sistema, con el PDF adjunto automáticamente.</p>
+<h3>Configuración para Gmail</h3>
+<div class="callout warn">
+<p><strong>Importante:</strong> Gmail no permite usar tu contraseña normal para enviar email desde apps externas. Necesitás generar una <strong>contraseña de aplicación</strong> de 16 caracteres.</p>
+</div>
+<ol class="step-list">
+<li>Activá la <strong>Verificación en dos pasos</strong> en tu cuenta de Google (es un requisito de Google para usar contraseñas de aplicación).</li>
+<li>Ingresá a <strong>myaccount.google.com/apppasswords</strong>.</li>
+<li>En el campo <em>Nombre de la app</em> escribí <strong>Restolibra</strong> y hacé clic en <em>Crear</em>.</li>
+<li>Google te mostrará una contraseña de 16 caracteres — copiala en ese momento (no se vuelve a mostrar).</li>
+<li>En Restolibra, andá a <strong>Configuración → Integraciones → Email</strong> y completá:<br/>
         Servidor: <code>smtp.gmail.com</code> · Puerto: <code>587</code> · Usuario: tu email completo · Contraseña: los 16 caracteres copiados.</li>
-      <li>Guardá y usá <strong>Probar conexión</strong> para verificar.</li>
-    </ol>
-
-    <h3>Configuración para otros proveedores</h3>
-    <table class="docs-table">
-      <thead><tr><th>Proveedor</th><th>Servidor SMTP</th><th>Puerto</th></tr></thead>
-      <tbody>
-        <tr><td>Gmail</td><td><code>smtp.gmail.com</code></td><td>587</td></tr>
-        <tr><td>Outlook / Hotmail</td><td><code>smtp.office365.com</code></td><td>587</td></tr>
-        <tr><td>Yahoo</td><td><code>smtp.mail.yahoo.com</code></td><td>587</td></tr>
-        <tr><td>Servidor propio</td><td>El que te provea tu hosting</td><td>587 o 465</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Probar la conexión</h3>
-    <p>El botón <strong>Probar conexión</strong> abre una conexión SMTP real con tu servidor y verifica las credenciales. Si la prueba falla con un error de autenticación, revisá que la contraseña sea la contraseña de aplicación (no la normal) y que el usuario sea tu email completo.</p>
-
-    <div class="docs-nav-footer">
-      <a href="/docs/libros-iva.html">← Libros IVA Digital</a>
-      <span></span>
-    </div>
+<li>Guardá y usá <strong>Probar conexión</strong> para verificar.</li>
+</ol>
+<h3>Configuración para otros proveedores</h3>
+<table class="docs-table">
+<thead><tr><th>Proveedor</th><th>Servidor SMTP</th><th>Puerto</th></tr></thead>
+<tbody>
+<tr><td>Gmail</td><td><code>smtp.gmail.com</code></td><td>587</td></tr>
+<tr><td>Outlook / Hotmail</td><td><code>smtp.office365.com</code></td><td>587</td></tr>
+<tr><td>Yahoo</td><td><code>smtp.mail.yahoo.com</code></td><td>587</td></tr>
+<tr><td>Servidor propio</td><td>El que te provea tu hosting</td><td>587 o 465</td></tr>
+</tbody>
+</table>
+<h3>Probar la conexión</h3>
+<p>El botón <strong>Probar conexión</strong> abre una conexión SMTP real con tu servidor y verifica las credenciales. Si la prueba falla con un error de autenticación, revisá que la contraseña sea la contraseña de aplicación (no la normal) y que el usuario sea tu email completo.</p>
+<div class="docs-nav-footer">
+<a href="/docs/libros-iva.html">← Libros IVA Digital</a>
+<span></span>
+</div>
   </main>
-
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">
-        <div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
+<div class="footer-inner">
+<div>
+<div class="footer-brand">
+<div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
         Restolibra
       </div>
-      <div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
-    </div>
-    <div style="display:flex;gap:3rem;flex-wrap:wrap">
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
-          <a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
-          <a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
-          <a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://wa.me/5491127752983" target="_blank" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
-          <a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://contalibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Contalibra — ERP &amp; Facturación</a>
-          <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Compulibra — Soporte IT &amp; Hosting</a>
-          <a href="https://neuroflow.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">NeuroFlow — IA &amp; Automatización</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copy">
-    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#78716c;text-decoration:none">Compulibra</a> · Todos los derechos reservados
+<div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
+</div>
+<div style="display:flex;gap:3rem;flex-wrap:wrap">
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
+<a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
+<a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
+<a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://wa.me/5491127752983" style="color:#a8a29e;font-size:.9rem" target="_blank"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+<a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://contalibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Contalibra — ERP &amp; Facturación</a>
+<a href="https://compulibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Compulibra — Soporte IT &amp; Hosting</a>
+<a href="https://neuroflow.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">NeuroFlow — IA &amp; Automatización</a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-copy">
+    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" rel="noopener" style="color:#78716c;text-decoration:none" target="_blank">Compulibra</a> · Todos los derechos reservados
   </div>
 </footer>
-
 </body>
 </html>

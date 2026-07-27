@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facturación electrónica — Documentación Restolibra</title>
+  <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -12,10 +13,7 @@
 <body>
 
 <nav class="navbar">
-  <a href="/" class="navbar-brand" style="text-decoration:none">
-    <div class="logo-icon">R</div>
-    Restolibra
-  </a>
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">R</div>Restolibra</a>
   <div class="navbar-links">
     <a href="/#funciones">Funciones</a>
     <a href="/#planes">Planes</a>
@@ -24,23 +22,19 @@
 </nav>
 
 <div class="docs-wrapper">
-
   <nav class="docs-sidebar">
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-
     <div class="docs-sidebar-section">Configuración</div>
     <a href="/docs/empresa.html">Datos del negocio</a>
     <a href="/docs/usuarios.html">Usuarios y permisos</a>
     <a href="/docs/configuracion.html">Configuración general</a>
-
     <div class="docs-sidebar-section">Salón y Comandas</div>
     <a href="/docs/salon.html">Salón y Mesas</a>
     <a href="/docs/comandas-kds.html">Comandas y KDS</a>
     <a href="/docs/canales.html">Canales sin mesa</a>
     <a href="/docs/recetas.html">Recetas y Food Cost</a>
-
     <div class="docs-sidebar-section">Módulos</div>
     <a href="/docs/ventas.html">Ventas</a>
     <a href="/docs/presupuestos.html">Presupuestos</a>
@@ -60,196 +54,180 @@
 
   <main class="docs-content">
     <h1>Facturación electrónica</h1>
-    <p class="docs-lead">Emití facturas A, B y C ante ARCA/AFIP directamente desde el sistema, ya sea desde una mesa cobrada, un pedido de delivery o una venta suelta. Notas de crédito y débito incluidas.</p>
-
-    <div class="callout warn">
-      <p><strong>Prerequisito:</strong> necesitás un certificado digital vigente emitido por AFIP y tener el módulo de facturación activo en tu plan (Estándar o superior).</p>
-    </div>
-
-    <h2>Configurar ARCA antes de facturar</h2>
-    <p>La primera vez que vayas a facturar, configurá las credenciales en <strong>Configuración → ARCA</strong>:</p>
-    <ol class="step-list">
-      <li>Generá el par de claves (clave privada + CSR) desde el sistema o con OpenSSL.</li>
-      <li>Ingresá al portal web de AFIP con tu CUIT y contraseña fiscal.</li>
-      <li>En <em>Administrador de Relaciones de Clave Fiscal</em>, cargá el CSR y obtené el certificado <kbd>.crt</kbd>.</li>
-      <li>Subí el certificado en <strong>Configuración → ARCA</strong>.</li>
-      <li>Guardá. El sistema se conecta automáticamente al servicio de AFIP para validar.</li>
-    </ol>
-
-    <div class="callout">
-      <p><strong>Punto de venta:</strong> el punto de venta habilitado es el que configuraste en AFIP. Por defecto el sistema usa el PV5. Si necesitás otro punto de venta, coordiná con soporte.</p>
-    </div>
-
-    <h2>Tipos de comprobante</h2>
-
-    <table class="docs-table">
-      <thead>
-        <tr><th>Comprobante</th><th>Cuándo emitirlo</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Factura A</strong></td>
-          <td>Ventas a Responsables Inscriptos. El cliente puede tomar el crédito fiscal del IVA.</td>
-        </tr>
-        <tr>
-          <td><strong>Factura B</strong></td>
-          <td>Ventas a consumidores finales y Monotributistas.</td>
-        </tr>
-        <tr>
-          <td><strong>Factura C</strong></td>
-          <td>Emitida por Monotributistas a cualquier cliente.</td>
-        </tr>
-        <tr>
-          <td><strong>Nota de Crédito A/B/C</strong></td>
-          <td>Para anular o ajustar una factura previa (devolución parcial o total).</td>
-        </tr>
-        <tr>
-          <td><strong>Nota de Débito A/B/C</strong></td>
-          <td>Para ajustar montos adicionales sobre una factura (recargos, diferencias).</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Emitir una factura</h2>
-    <ol class="step-list">
-      <li>Andá a <strong>Facturación → Nueva factura</strong>, o desde el detalle de una venta ya cobrada.</li>
-      <li>Seleccioná el tipo: Factura A, B o C.</li>
-      <li>Si es Factura A, ingresá el CUIT del cliente (se consulta automáticamente vía AFIP para completar la razón social).</li>
-      <li>Verificá los ítems, provenientes del pedido o venta original.</li>
-      <li>Verificá el total y hacé clic en <strong>Emitir factura</strong>.</li>
-      <li>El sistema envía los datos a ARCA, obtiene el CAE y genera el PDF de la factura.</li>
-    </ol>
-
-    <h2>Descargar e imprimir facturas</h2>
-    <p>Una vez emitida, la factura queda guardada en el sistema. Desde el detalle de cualquier factura podés:</p>
-    <ul>
-      <li><strong>Descargar PDF:</strong> factura en formato A4 lista para imprimir o enviar por email</li>
-      <li><strong>Ticket:</strong> versión compacta para impresora térmica</li>
-    </ul>
-
-    <h2>Enviar factura por email</h2>
-    <p>Desde el detalle de cualquier factura emitida podés enviarla por email al cliente:</p>
-    <ol class="step-list">
-      <li>Abrí el detalle de la factura.</li>
-      <li>Hacé clic en <strong>Enviar por email</strong>.</li>
-      <li>El sistema usa el email registrado en la ficha del cliente (o podés ingresar uno manualmente).</li>
-      <li>El PDF de la factura se adjunta automáticamente al correo.</li>
-    </ol>
-    <div class="callout">
-      <p><strong>Requisito:</strong> el servidor de correo debe estar configurado en <a href="/docs/integraciones.html">Integraciones → Email / SMTP</a>.</p>
-    </div>
-
-    <h2>Notas de crédito</h2>
-    <p>Para anular total o parcialmente una factura ya emitida:</p>
-    <ol class="step-list">
-      <li>Abrí el detalle de la factura original.</li>
-      <li>Hacé clic en <strong>Nota de crédito</strong>.</li>
-      <li>Ajustá los ítems y cantidades a acreditar.</li>
-      <li>Confirmá. La NC se emite ante ARCA con CAE propio y queda vinculada a la factura original.</li>
-    </ol>
-
-    <h2>Errores comunes</h2>
-
-    <table class="docs-table">
-      <thead>
-        <tr><th>Error</th><th>Causa probable</th><th>Solución</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Certificado vencido</td>
-          <td>El certificado AFIP tiene vigencia de 2 años</td>
-          <td>Renovar el certificado en el portal AFIP y subirlo nuevamente</td>
-        </tr>
-        <tr>
-          <td>CUIT no autorizado</td>
-          <td>El PV no está habilitado en AFIP para ese CUIT</td>
-          <td>Verificar que el PV esté habilitado en AFIP</td>
-        </tr>
-        <tr>
-          <td>Servicio no disponible</td>
-          <td>AFIP tiene mantenimiento o está caído</td>
-          <td>Esperar y reintentar. AFIP publica sus ventanas de mantenimiento.</td>
-        </tr>
-        <tr>
-          <td>Token de acceso expirado</td>
-          <td>El ticket de autenticación WSAA dura 12 horas</td>
-          <td>El sistema lo renueva automáticamente; si falla, usá "Probar conexión" en Config → ARCA</td>
-        </tr>
-        <tr>
-          <td>Punto de venta inactivo</td>
-          <td>El PV fue dado de baja en AFIP</td>
-          <td>Verificar en AFIP que el PV esté activo y configurado para Web Services</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <p><strong>Tip:</strong> si AFIP está caído, podés seguir cobrando pedidos sin facturar y emitir las facturas cuando el servicio vuelva. Los datos quedan guardados.</p>
-    </div>
-
-    <h2>Facturar pagos de MercadoPago</h2>
-    <p>Cuando recibís pagos por links de cobro, suscripciones o transferencias bancarias, podés facturarlos directamente desde la <strong>Bandeja de pagos MercadoPago</strong> en lugar de crear la factura manualmente.</p>
-    <ul>
-      <li>Los pagos aprobados por webhook aparecen automáticamente en la bandeja.</li>
-      <li>Las transferencias bancarias se sincronizan con el botón <em>Sincronizar</em>.</li>
-      <li>Para facturar, hacé clic en <strong>Factura</strong>, editá el concepto si querés, y el sistema genera la factura con CAE y envía el email al cliente.</li>
-    </ul>
-    <p>Consultá la documentación completa en <a href="/docs/integraciones.html#bandeja">Integraciones → Bandeja de pagos</a>.</p>
-
-    <div class="docs-nav-footer">
-      <a href="/docs/caja-turnos.html">← Caja y Turnos</a>
-      <a href="/docs/productos-stock.html">Productos y Stock →</a>
-    </div>
+<p class="docs-lead">Emití facturas A, B y C ante ARCA/AFIP directamente desde el sistema, ya sea desde una mesa cobrada, un pedido de delivery o una venta suelta. Notas de crédito y débito incluidas.</p>
+<div class="callout warn">
+<p><strong>Prerequisito:</strong> necesitás un certificado digital vigente emitido por AFIP y tener el módulo de facturación activo en tu plan (Estándar o superior).</p>
+</div>
+<h2>Configurar ARCA antes de facturar</h2>
+<p>La primera vez que vayas a facturar, configurá las credenciales en <strong>Configuración → ARCA</strong>:</p>
+<ol class="step-list">
+<li>Generá el par de claves (clave privada + CSR) desde el sistema o con OpenSSL.</li>
+<li>Ingresá al portal web de AFIP con tu CUIT y contraseña fiscal.</li>
+<li>En <em>Administrador de Relaciones de Clave Fiscal</em>, cargá el CSR y obtené el certificado <kbd>.crt</kbd>.</li>
+<li>Subí el certificado en <strong>Configuración → ARCA</strong>.</li>
+<li>Guardá. El sistema se conecta automáticamente al servicio de AFIP para validar.</li>
+</ol>
+<div class="callout">
+<p><strong>Punto de venta:</strong> el punto de venta habilitado es el que configuraste en AFIP. Por defecto el sistema usa el PV5. Si necesitás otro punto de venta, coordiná con soporte.</p>
+</div>
+<h2>Tipos de comprobante</h2>
+<table class="docs-table">
+<thead>
+<tr><th>Comprobante</th><th>Cuándo emitirlo</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Factura A</strong></td>
+<td>Ventas a Responsables Inscriptos. El cliente puede tomar el crédito fiscal del IVA.</td>
+</tr>
+<tr>
+<td><strong>Factura B</strong></td>
+<td>Ventas a consumidores finales y Monotributistas.</td>
+</tr>
+<tr>
+<td><strong>Factura C</strong></td>
+<td>Emitida por Monotributistas a cualquier cliente.</td>
+</tr>
+<tr>
+<td><strong>Nota de Crédito A/B/C</strong></td>
+<td>Para anular o ajustar una factura previa (devolución parcial o total).</td>
+</tr>
+<tr>
+<td><strong>Nota de Débito A/B/C</strong></td>
+<td>Para ajustar montos adicionales sobre una factura (recargos, diferencias).</td>
+</tr>
+</tbody>
+</table>
+<h2>Emitir una factura</h2>
+<ol class="step-list">
+<li>Andá a <strong>Facturación → Nueva factura</strong>, o desde el detalle de una venta ya cobrada.</li>
+<li>Seleccioná el tipo: Factura A, B o C.</li>
+<li>Si es Factura A, ingresá el CUIT del cliente (se consulta automáticamente vía AFIP para completar la razón social).</li>
+<li>Verificá los ítems, provenientes del pedido o venta original.</li>
+<li>Verificá el total y hacé clic en <strong>Emitir factura</strong>.</li>
+<li>El sistema envía los datos a ARCA, obtiene el CAE y genera el PDF de la factura.</li>
+</ol>
+<h2>Descargar e imprimir facturas</h2>
+<p>Una vez emitida, la factura queda guardada en el sistema. Desde el detalle de cualquier factura podés:</p>
+<ul>
+<li><strong>Descargar PDF:</strong> factura en formato A4 lista para imprimir o enviar por email</li>
+<li><strong>Ticket:</strong> versión compacta para impresora térmica</li>
+</ul>
+<h2>Enviar factura por email</h2>
+<p>Desde el detalle de cualquier factura emitida podés enviarla por email al cliente:</p>
+<ol class="step-list">
+<li>Abrí el detalle de la factura.</li>
+<li>Hacé clic en <strong>Enviar por email</strong>.</li>
+<li>El sistema usa el email registrado en la ficha del cliente (o podés ingresar uno manualmente).</li>
+<li>El PDF de la factura se adjunta automáticamente al correo.</li>
+</ol>
+<div class="callout">
+<p><strong>Requisito:</strong> el servidor de correo debe estar configurado en <a href="/docs/integraciones.html">Integraciones → Email / SMTP</a>.</p>
+</div>
+<h2>Notas de crédito</h2>
+<p>Para anular total o parcialmente una factura ya emitida:</p>
+<ol class="step-list">
+<li>Abrí el detalle de la factura original.</li>
+<li>Hacé clic en <strong>Nota de crédito</strong>.</li>
+<li>Ajustá los ítems y cantidades a acreditar.</li>
+<li>Confirmá. La NC se emite ante ARCA con CAE propio y queda vinculada a la factura original.</li>
+</ol>
+<h2>Errores comunes</h2>
+<table class="docs-table">
+<thead>
+<tr><th>Error</th><th>Causa probable</th><th>Solución</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Certificado vencido</td>
+<td>El certificado AFIP tiene vigencia de 2 años</td>
+<td>Renovar el certificado en el portal AFIP y subirlo nuevamente</td>
+</tr>
+<tr>
+<td>CUIT no autorizado</td>
+<td>El PV no está habilitado en AFIP para ese CUIT</td>
+<td>Verificar que el PV esté habilitado en AFIP</td>
+</tr>
+<tr>
+<td>Servicio no disponible</td>
+<td>AFIP tiene mantenimiento o está caído</td>
+<td>Esperar y reintentar. AFIP publica sus ventanas de mantenimiento.</td>
+</tr>
+<tr>
+<td>Token de acceso expirado</td>
+<td>El ticket de autenticación WSAA dura 12 horas</td>
+<td>El sistema lo renueva automáticamente; si falla, usá "Probar conexión" en Config → ARCA</td>
+</tr>
+<tr>
+<td>Punto de venta inactivo</td>
+<td>El PV fue dado de baja en AFIP</td>
+<td>Verificar en AFIP que el PV esté activo y configurado para Web Services</td>
+</tr>
+</tbody>
+</table>
+<div class="callout">
+<p><strong>Tip:</strong> si AFIP está caído, podés seguir cobrando pedidos sin facturar y emitir las facturas cuando el servicio vuelva. Los datos quedan guardados.</p>
+</div>
+<h2>Facturar pagos de MercadoPago</h2>
+<p>Cuando recibís pagos por links de cobro, suscripciones o transferencias bancarias, podés facturarlos directamente desde la <strong>Bandeja de pagos MercadoPago</strong> en lugar de crear la factura manualmente.</p>
+<ul>
+<li>Los pagos aprobados por webhook aparecen automáticamente en la bandeja.</li>
+<li>Las transferencias bancarias se sincronizan con el botón <em>Sincronizar</em>.</li>
+<li>Para facturar, hacé clic en <strong>Factura</strong>, editá el concepto si querés, y el sistema genera la factura con CAE y envía el email al cliente.</li>
+</ul>
+<p>Consultá la documentación completa en <a href="/docs/integraciones.html#bandeja">Integraciones → Bandeja de pagos</a>.</p>
+<div class="docs-nav-footer">
+<a href="/docs/caja-turnos.html">← Caja y Turnos</a>
+<a href="/docs/productos-stock.html">Productos y Stock →</a>
+</div>
   </main>
-
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">
-        <div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
+<div class="footer-inner">
+<div>
+<div class="footer-brand">
+<div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">R</div>
         Restolibra
       </div>
-      <div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
-    </div>
-    <div style="display:flex;gap:3rem;flex-wrap:wrap">
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
-          <a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
-          <a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
-          <a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://wa.me/5491127752983" target="_blank" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
-          <a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://contalibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Contalibra — ERP &amp; Facturación</a>
-          <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">Compulibra — Soporte IT &amp; Hosting</a>
-          <a href="https://neuroflow.com.ar" target="_blank" rel="noopener" style="color:#a8a29e;font-size:.9rem">NeuroFlow — IA &amp; Automatización</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copy">
-    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" target="_blank" rel="noopener" style="color:#78716c;text-decoration:none">Compulibra</a> · Todos los derechos reservados
+<div class="footer-tagline">Sistema de gestión para restaurantes, bares y delivery</div>
+</div>
+<div style="display:flex;gap:3rem;flex-wrap:wrap">
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Sistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/#funciones" style="color:#a8a29e;font-size:.9rem">Funciones</a>
+<a href="/#planes" style="color:#a8a29e;font-size:.9rem">Planes</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Recursos</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="/docs/" style="color:#a8a29e;font-size:.9rem">Documentación</a>
+<a href="/docs/primeros-pasos.html" style="color:#a8a29e;font-size:.9rem">Primeros pasos</a>
+<a href="/docs/salon.html" style="color:#a8a29e;font-size:.9rem">Salón y Mesas</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Contacto</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://wa.me/5491127752983" style="color:#a8a29e;font-size:.9rem" target="_blank"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+<a href="mailto:hola@restolibra.com.ar" style="color:#a8a29e;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
+</div>
+</div>
+<div>
+<div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#78716c;margin-bottom:.75rem">Nuestro Ecosistema</div>
+<div style="display:flex;flex-direction:column;gap:.4rem">
+<a href="https://contalibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Contalibra — ERP &amp; Facturación</a>
+<a href="https://compulibra.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">Compulibra — Soporte IT &amp; Hosting</a>
+<a href="https://neuroflow.com.ar" rel="noopener" style="color:#a8a29e;font-size:.9rem" target="_blank">NeuroFlow — IA &amp; Automatización</a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-copy">
+    © 2026 Restolibra · parte del ecosistema <a href="https://compulibra.com.ar" rel="noopener" style="color:#78716c;text-decoration:none" target="_blank">Compulibra</a> · Todos los derechos reservados
   </div>
 </footer>
-
 </body>
 </html>
