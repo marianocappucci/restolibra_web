@@ -4,6 +4,8 @@ services:
     image: restolibra-web:latest
     container_name: restolibra-web
     restart: unless-stopped
+    environment:
+      - AUTH_UPSTREAM=restolibra-web-auth
     ports:
       - "8079:80"
     networks:
