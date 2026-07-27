@@ -12,7 +12,10 @@ services:
       - auth
 
   auth:
-    build: ./auth
+    build:
+      context: ./auth
+      ssh:
+        - default=${LIBRA_WEB_KIT_SSH_KEY:-~/.ssh/id_ed25519_libra_web_kit}
     image: restolibra-web-auth:latest
     container_name: restolibra-web-auth
     restart: unless-stopped
