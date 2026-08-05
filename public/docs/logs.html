@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Depósitos — Documentación Restolibra</title>
+  <title>Logs de actividad — Documentación Restolibra</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -46,53 +46,55 @@
     <a href="/docs/listas-precio.html">Listas de Precios</a>
     <a href="/docs/egresos-proveedores.html">Egresos y Proveedores</a>
     <a href="/docs/tesoreria.html">Tesorería</a>
-    <a href="/docs/depositos.html" class="active">Depósitos</a>
+    <a href="/docs/depositos.html">Depósitos</a>
     <a href="/docs/reportes.html">Reportes</a>
     <a href="/docs/libros-iva.html">Libros IVA Digital</a>
     <a href="/docs/integraciones.html">Integraciones</a>
-    <a href="/docs/logs.html">Logs de actividad</a>
+    <a href="/docs/logs.html" class="active">Logs de actividad</a>
   </nav>
 
   <main class="docs-content">
-    <h1>Depósitos <span class="feature-badge badge-premium">Premium</span></h1>
-<p class="docs-lead">Gestioná el inventario de insumos separado por depósito o sucursal — por ejemplo, la cámara fría, el depósito seco y una segunda sucursal. Cada depósito tiene su propio stock y podés transferir mercadería entre ellos.</p>
+    <h1>Logs de actividad</h1>
+<p class="docs-lead">La línea de tiempo de todo lo que pasó en el local, y quién entró. Sólo para administradores.</p>
+<h2>Dónde está</h2>
+<p>En el menú lateral, <strong>Logs</strong>. Sólo la ve un usuario con rol <strong>admin</strong>.</p>
+<h2>Actividad</h2>
+<p>Una sola lista, ordenada por fecha, que une los movimientos de todos los módulos. No es un listado de «cambios»: es <strong>lo que ocurrió en el negocio</strong>, sacado de las operaciones reales.</p>
+<table class="docs-table">
+<thead><tr><th>Tipo</th><th>De dónde sale</th></tr></thead>
+<tbody>
+<tr><td><strong>Venta</strong></td><td>Cada venta, con su número, el cliente y el estado</td></tr>
+<tr><td><strong>Caja</strong></td><td>Ingresos y egresos de caja, con el concepto</td></tr>
+<tr><td><strong>Stock</strong></td><td>Movimientos de inventario, con el producto y la cantidad</td></tr>
+<tr><td><strong>Factura</strong></td><td>Comprobantes emitidos</td></tr>
+<tr><td><strong>Turno</strong></td><td>Aperturas y cierres de turno de caja</td></tr>
+<tr><td><strong>Remito</strong></td><td>Remitos emitidos</td></tr>
+<tr><td><strong>Presupuesto</strong></td><td>Presupuestos emitidos</td></tr>
+</tbody>
+</table>
+<p>Cada fila muestra la hora, el tipo, una descripción, el monto cuando corresponde, el usuario y el turno de caja en el que ocurrió.</p>
 <div class="callout">
-<p><strong>Plan requerido:</strong> el módulo de Depósitos está disponible en el plan <strong>Premium</strong>.</p>
+<p><strong>Para el día a día del salón está la ficha del pedido.</strong> El recorrido de una comanda —tomada, en cocina, lista, entregada— se sigue desde <a href="/docs/comandas-kds.html">Comandas y KDS</a>, que muestra el estado en vivo. Este log es para mirar hacia atrás: qué se vendió, qué se cobró y quién lo hizo.</p>
 </div>
-<h2>Para qué sirve</h2>
-<p>El módulo de Depósitos te permite separar el stock por ubicación física: cámaras, depósitos secos, sucursales. Cada depósito lleva su propio inventario y el sistema sabe exactamente cuántos insumos hay en cada uno. Podés:</p>
+<h3>Filtros</h3>
 <ul>
-<li>Crear tantos depósitos como necesités (depósito seco, cámara fría, sucursal)</li>
-<li>Ver el stock de cada producto o insumo por depósito</li>
-<li>Transferir mercadería de un depósito a otro con trazabilidad completa</li>
-<li>Configurar cuál es el depósito predeterminado para las ventas y el descuento de recetas</li>
+<li><strong>Tipo de evento</strong> — uno de los siete de arriba, o todos.</li>
+<li><strong>Usuario</strong> — quién lo hizo.</li>
+<li><strong>Turno</strong> — por número de turno de caja, para reconstruir un servicio completo.</li>
+<li><strong>Desde / Hasta</strong> — por fecha.</li>
 </ul>
-<h2>Crear un depósito</h2>
-<ol class="step-list">
-<li>Andá a <strong>Depósitos → Nuevo depósito</strong>.</li>
-<li>Ingresá un <strong>nombre</strong> descriptivo (por ejemplo: "Depósito seco", "Sucursal Norte").</li>
-<li>Agregá una <strong>descripción</strong> opcional.</li>
-<li>Guardá el depósito. Si querés que sea el predeterminado, marcalo con esa opción antes de guardar.</li>
-</ol>
-<h2>Depósito predeterminado</h2>
-<p>El depósito predeterminado es el que se descuenta automáticamente al cobrar un pedido o registrar una venta, sin necesidad de seleccionarlo cada vez. Siempre hay exactamente un depósito activo como predeterminado. Al marcar uno nuevo como predeterminado, el anterior pierde esa condición.</p>
-<h2>Ver stock por depósito</h2>
-<p>Desde la ficha de cada depósito podés ver el listado completo de productos e insumos con el stock actual en ese depósito. El stock de un mismo insumo puede diferir entre depósitos según las ventas, transferencias y ajustes realizados en cada uno.</p>
-<h2>Transferir stock entre depósitos</h2>
-<ol class="step-list">
-<li>Andá a <strong>Depósitos → Transferir stock</strong>.</li>
-<li>Seleccioná el depósito <strong>origen</strong> y el depósito <strong>destino</strong>.</li>
-<li>Buscá el producto o insumo que querés transferir.</li>
-<li>Ingresá la <strong>cantidad</strong> a transferir.</li>
-<li>Confirmá la transferencia. El sistema descuenta la cantidad del origen y la acredita en el destino de forma inmediata.</li>
-</ol>
-<div class="callout warn">
-<p><strong>Atención:</strong> las transferencias son irreversibles desde la interfaz. Si necesitás corregir una transferencia, realizá una en sentido inverso con la misma cantidad.</p>
+<p>Se muestran de a página, con el total de registros arriba. El botón <strong>Limpiar</strong> vuelve a la vista completa.</p>
+<div class="callout">
+<p><strong>Es una vista, no una copia.</strong> Las filas se arman leyendo las tablas reales en el momento de consultarlas, así que nunca queda desactualizada respecto de lo que muestran los otros módulos: si una venta se anula, el log lo refleja.</p>
 </div>
-<h2>Ajustes de stock</h2>
-<p>Los ajustes manuales de inventario (correcciones por diferencia de recuento, mermas, etc.) se realizan desde <strong>Productos → Stock</strong>. Al hacer un ajuste, el sistema te pide que seleccionés el depósito al que aplica el cambio.</p>
+<h2>Accesos de usuarios</h2>
+<p>Debajo de la actividad, la lista de accesos: fecha, evento, usuario y dirección IP. Los eventos son <strong>login</strong>, <strong>logout</strong> y <strong>login fallido</strong>.</p>
+<p>El intento fallido guarda el nombre de usuario que se tipeó, aunque no exista — es lo que permite distinguir a un mozo que se equivocó de contraseña de alguien probando usuarios al azar.</p>
+<div class="callout">
+<p><strong>Sobre la IP:</strong> es la dirección pública desde la que se conectó el navegador. Sirve para leer el log, no como prueba — una IP se puede falsificar.</p>
+</div>
 <div class="docs-nav-footer">
-<a href="/docs/tesoreria.html">← Tesorería</a>
+<a href="/docs/usuarios.html">← Usuarios y permisos</a>
 <a href="/docs/reportes.html">Reportes →</a>
 </div>
   </main>
