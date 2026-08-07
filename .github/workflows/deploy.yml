@@ -9,6 +9,22 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Un deploy por vez, y los que lleguen mientras tanto ESPERAN.
+#
+# `cancel-in-progress: false` a proposito, al reves que en los CI: cortar un
+# deploy a la mitad deja el rsync hecho y el contenedor sin reconstruir, que es
+# peor que esperar.
+#
+# No es hipotetico. El 2026-08-07 un solo push a libradesk_web disparo dos
+# corridas de este mismo workflow para el mismo commit, con 2 segundos de
+# diferencia; corrieron en paralelo sobre el mismo directorio del VPS y una
+# murio con `Conflict. The container name "..." is already in use`. Peor: la que
+# fallo lo hizo en "Rebuild y restart Docker", asi que su paso de verificacion
+# quedo `skipped` -- el deploy que falla es el que no llega a comprobar nada.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   deploy:
     uses: marianocappucci/libra-web-kit/.github/workflows/deploy-vps.yml@main
