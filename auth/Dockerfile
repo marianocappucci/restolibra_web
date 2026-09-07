@@ -11,7 +11,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends git openssh-client && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p -m 0700 /root/.ssh \
     && ssh-keyscan github.com >> /root/.ssh/known_hosts 2>/dev/null \
-    && printf 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINZ2l1pBBHhFIgKFpoW1485sEtImpuF3jyc1msT4n88f deploy-key-libra-web-kit-readonly\n' > /root/.ssh/id_libra_web_kit.pub \
+    && printf 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGodORROIy2mTOZJRjPNOwdb69eB6nscnvN1WrVc/sV deploy-key-libra-web-kit-readonly\n' > /root/.ssh/id_libra_web_kit.pub \
     && printf 'Host github-libra-web-kit\n  HostName github.com\n  User git\n  HostKeyAlias github.com\n  IdentityFile /root/.ssh/id_libra_web_kit.pub\n  IdentitiesOnly yes\n' > /root/.ssh/config \
     && chmod 600 /root/.ssh/config /root/.ssh/id_libra_web_kit.pub
 COPY requirements.txt .
