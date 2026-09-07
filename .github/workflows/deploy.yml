@@ -30,4 +30,6 @@ jobs:
     uses: marianocappucci/libra-web-kit/.github/workflows/deploy-vps.yml@main
     with:
       remote_path: /root/restolibra_web/
+      # El servicio de este compose se llama `restolibra-web`, no `web`.
+      servicio_web: restolibra-web
     secrets: inherit
