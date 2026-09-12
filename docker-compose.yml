@@ -7,7 +7,7 @@ services:
     environment:
       - AUTH_UPSTREAM=restolibra-web-auth
     ports:
-      - "8079:80"
+      - "127.0.0.1:8079:80"
     networks:
       - stack-net
     depends_on:
