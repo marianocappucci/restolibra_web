@@ -42,10 +42,10 @@ img { max-width: 100%; }
   font-size: 1.3rem; font-weight: 800; color: var(--dark);
   display: flex; align-items: center; gap: .5rem;
 }
+/* La marca es una <img> con el SVG dibujado de libra-ui (ADR-009): ya trae el
+   cuadrado del color y el redondeo, asi que sin fondo, color de texto ni radio. */
 .navbar-brand .logo-icon {
-  width: 32px; height: 32px; background: var(--brand);
-  border-radius: 8px; display: flex; align-items: center; justify-content: center;
-  color: white; font-weight: 900; font-size: 1.1rem; line-height: 1;
+  width: 32px; height: 32px; display: block; flex-shrink: 0;
 }
 .navbar-links { display: flex; align-items: center; gap: 1.5rem; }
 .navbar-links a { color: var(--muted); font-size: .95rem; font-weight: 500; }
@@ -218,7 +218,7 @@ footer {
 }
 .footer-brand { font-size: 1.1rem; font-weight: 800; color: white;
                 display: flex; align-items: center; gap: .5rem; }
-.footer-brand .logo-icon { background: var(--brand); }
+.footer-brand .logo-icon { width: 28px; height: 28px; display: block; flex-shrink: 0; }
 .footer-tagline { font-size: .85rem; color: #78716c; margin-top: .3rem; }
 .footer-copy { margin-top: 2rem; padding-top: 1.5rem;
                border-top: 1px solid #2a2118;
