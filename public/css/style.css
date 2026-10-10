@@ -225,11 +225,38 @@ section[id] { scroll-margin-top: 72px; }
                            color: var(--p-on-dark-text); }
 .showcase-cta { text-align: center; margin-top: 2.5rem; }
 
+/* Plan unico: una tarjeta centrada, con el precio de protagonista */
+.pricing-grid.unico { grid-template-columns: minmax(0, 640px); justify-content: center; }
+.plan-unico { padding: 2.5rem 2.25rem; text-align: center; }
+.plan-unico .plan-name { margin-bottom: .5rem; }
+.plan-unico .plan-price { font-size: clamp(2.6rem, 6vw, 3.4rem) !important; margin: .25rem 0; }
+.plan-unico .plan-price span { font-size: 1.05rem; }
+.plan-iva { margin: 0 0 .75rem; font-size: .82rem; color: var(--muted); }
+.plan-unico .plan-cta { justify-content: center; }
+.plan-unico .plan-features { columns: 2; column-gap: 2rem; text-align: left; margin-bottom: 1.75rem; }
+.plan-unico .plan-features li { break-inside: avoid; }
+.plan-incluye { margin: 0 0 .75rem; text-align: left; font-size: .78rem; font-weight: 700;
+                letter-spacing: .08em; text-transform: uppercase; color: var(--brand-dark); }
+.plan-sucursal-nota { margin: 1.5rem 0 0; padding: .9rem 1.1rem; border-radius: 12px;
+                      background: var(--brand-light); color: var(--dark-2); font-size: .95rem; }
+.ejemplos-precio { max-width: 640px; margin: 2.5rem auto 0; background: #fff;
+                   border: 1px solid var(--p-card-border); border-radius: 16px; overflow: hidden; }
+.ejemplos-precio > div { display: flex; justify-content: space-between; gap: 1rem;
+                         padding: .8rem 1.25rem; font-size: .95rem; color: var(--dark-2); }
+.ejemplos-precio > div + div { border-top: 1px solid #f1f5f9; }
+.ejemplos-precio strong { color: var(--dark); white-space: nowrap; }
+.ejemplos-precio .ejemplos-titulo { background: var(--bg); font-size: .78rem; font-weight: 700;
+                                    letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 520px) {
+  .plan-unico { padding: 2rem 1.25rem; }
+  .plan-unico .plan-features { columns: 1; }
+}
+
 /* Pie de pagina */
 .site-footer { padding: 4rem 2rem 2rem; background: var(--p-footer-bg);
                border-top: 3px solid var(--brand); }
 .f-inner { max-width: 1100px; margin: 0 auto; display: grid;
-           grid-template-columns: 1.6fr 1fr 1.1fr 1.3fr; gap: 2.5rem; }
+           grid-template-columns: 1.6fr 1fr 1.1fr; gap: 2.5rem; }
 .f-logo { width: 28px; height: 28px; display: block; flex-shrink: 0; }
 .f-tagline { margin: 1rem 0 1.5rem; max-width: 300px; font-size: .9rem;
              line-height: 1.65; color: var(--p-on-dark-muted); }
@@ -244,7 +271,6 @@ section[id] { scroll-margin-top: 72px; }
 .f-col a { display: block; color: var(--p-on-dark-text); font-size: .92rem; transition: color .15s; }
 .f-col a:hover { color: var(--p-on-dark-accent); text-decoration: none; }
 .f-col a i { margin-right: .5rem; color: var(--p-on-dark-muted); }
-.f-family a small { display: block; font-size: .78rem; color: var(--p-on-dark-faint); margin-top: .1rem; }
 .f-bottom { max-width: 1100px; margin: 3rem auto 0; padding-top: 1.5rem;
             border-top: 1px solid var(--p-footer-line); display: flex; flex-wrap: wrap;
             justify-content: space-between; gap: .75rem; font-size: .82rem;
